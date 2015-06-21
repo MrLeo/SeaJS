@@ -2,6 +2,8 @@
 
 ---
 
+[官方文档](http://seajs.org/docs/#docs)
+
 ```
 `\SeaJS
 | -- web：页面文件，如：index.html
@@ -18,5 +20,5 @@
 		|-- sweetalert： sweetalert提示、操作弹出层
 		|-- tools： 与业务无关的工具包
 		|-- wx：微信模块包
-		|-- main.js： 页面调用seaJS入口
+		|-- main.js： 页面调用seaJS入口,包含seajs的配置信息
 ```

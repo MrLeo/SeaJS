@@ -21,6 +21,10 @@ define(function(require, exports, module) {
 			'locale'	: 'zh-cn'
 		},
 		preload: [ //--预先加载
+			//'plugin-text', //--加载模本等文本文件
+			//'plugin-json', //--加载 JSON 数据
+			//'plugin-coffee', //--加载 coffee 脚本
+			//'plugin-less', //--加载 less 样式
 			'jquery'
 		],
 		debug: true, //--调试模式
