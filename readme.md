@@ -11,6 +11,7 @@
 	- |-- libs: 插件包
 		- |-- jquery： JQuery插件包
 		- |-- seajs： seaJS原始插件包
+		- |-- sweetalert： sweetalert提示、操作弹出层
 		- |-- tools： 与业务无关的工具包
 		- |-- wx：微信模块包
 		- |-- main.js： 页面调用seaJS入口
