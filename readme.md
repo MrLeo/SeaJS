@@ -30,11 +30,11 @@
 #### Get Start
 1. 在**web**目录下创建HTML页面，eg.`index.html`
 2. 在HTML文件</body>前引入seajs，并指定seajs入口模块
-```html
-<!--使用seajs引入相关js文件-->
-<script src="../static/libs/seajs/sea.js" type="text/javascript"></script>
-<script type="text/javascript"> seajs.use('../static/libs/main'); </script>
-```
+	```html
+	<!--使用seajs引入相关js文件-->
+	<script src="../static/libs/seajs/sea.js" type="text/javascript"></script>
+	<script type="text/javascript"> seajs.use('../static/libs/main'); </script>
+	```
 3. 在**static/js/pageController**目录下创建与HTML同名的js文件，eg.`index.js`
 5. 使用`define(function(require,exports,module){ });`定义模块
 6. 使用`exports.FunctionName=function(){ };`或`module.exports={ FunctionName : function(){ } };`定义模块接口
