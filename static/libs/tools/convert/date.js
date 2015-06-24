@@ -18,5 +18,12 @@ define(function(require, exports, module) {
 		//console.log(d, date, o, fmt);
 		return fmt;
 	}
+	
+	/** 
+	 * ---- 日期格式化 ----
+	 * @param {DateString} date 被格式化的日期
+	 * @param {String} fmt 转换格式，eg.yyyy-MM-dd
+	 * @return {DateString} fmt 转换后的日期
+	 */
 	exports.DateFormat = format;
 });

@@ -38,7 +38,10 @@ define(function(require, exports, module) {
 		return page.split(".html")[0];
 	}
 
-	/* ---- 加载页面对应的js ---- */
+	/**
+	 * ---- 加载页面对应的js ----
+	 * @param {String} basePath 基础路径 
+	 */
 	exports.load = function(basePath) {
 		if (basePath) {
 			seajs.config({
