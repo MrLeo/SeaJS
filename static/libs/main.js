@@ -40,7 +40,7 @@ define(function(require, exports, module) {
 
 	/**
 	 * ---- 加载页面对应的js ----
-	 * @param {String} basePath 基础路径 
+	 * @param {URIString} basePath 基础路径 
 	 */
 	exports.load = function(basePath) {
 		if (basePath) {
