@@ -28,6 +28,7 @@
 ***
 
 #### Get Start
+
 1. 在**web**目录下创建HTML页面，eg.`index.html`
 2. 在HTML文件</body>前引入seajs，并指定seajs入口模块
 	```html
@@ -44,6 +45,7 @@
 ***
 
 #### JSDoc
+
 > [HBuilder官方文档](http://ask.dcloud.net.cn/article/129)
 
 ``` javascript
