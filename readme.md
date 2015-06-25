@@ -60,5 +60,6 @@
  * @constructor (使用@constructor可以标识一个函数是构造函数)
  * @type {Type[,Type,...]} (使用@type可以定义某个变量的类型)
  * @return {Type[,Type,...]} (使用@return可以描述一个对象的属性)
+ * @throw {TypeError} 参数类型不匹配 (异常信息)
  */
 ```
