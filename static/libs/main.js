@@ -10,12 +10,12 @@ define(function(require, exports, module) {
 			/* ---- 以下是和业务无关的库 ---- */
 			'seajs'		: '../../libs/seajs', 			//--seajs原始库
 			'jquery'	: '../../libs/jquery', 			//--JQuery库
-			'alert'		: '../../libs/sweetalert/dist', //--SweetAlert
+			'sweetalert': '../../libs/sweetalert/dist', //--SweetAlert
 			'tools'		: '../../libs/tools' 			//--工具库
 		},
 		alias: { //--设置常用模块的别名
 			'jquery'	: 'jquery/jquery-2.0.3',
-			'alert'		: 'alert/sweetalert.min'
+			'alert'		: 'sweetalert/sweetalert.min'
 		},
 		vars: { //--变量配置
 			'locale'	: 'zh-cn'
