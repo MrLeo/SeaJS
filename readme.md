@@ -1,4 +1,4 @@
-# SeaJS学习笔记
+# [SeaJS学习笔记](https://github.com/MrLeo/SeaJS)
 
 > [SeaJS官方文档](http://seajs.org/docs/#docs)
 
