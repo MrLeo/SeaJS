@@ -2,9 +2,7 @@
 
 > [SeaJS官方文档](http://seajs.org/docs/#docs)
 
-#### 目录结构
-
-***
+# `目录结构`
 
 ```
 `\SeaJS
@@ -13,38 +11,39 @@
 	|-- css：样式文件
 	|-- img：图片文件
 	|-- js：业务相关的JS模块文件 
-    |	|-- commen：业务相关的共通JS模块文件
-    |	|-- data： 业务相关的data模块
-	|	|-- pageController： 与web文件夹中的页面文件同名的模块，如：index.js
+    |	|-- **commen**：业务相关的共通JS模块文件
+    |	|-- **data**： 业务相关的data模块
+	|	|-- **pageController**： 与web文件夹中的页面文件同名的模块，如：index.js
 	|-- libs: 插件包
 		|-- jquery： JQuery插件包
 		|-- seajs： seaJS原始插件包
 		|-- sweetalert： sweetalert提示、操作弹出层
-		|-- tools： 与业务无关的工具包
+		|-- **tools**： `与业务无关的工具包`
 		|-- wx：微信模块包
-		|-- main.js： 页面调用seaJS入口,包含seajs的配置信息
+		|-- main.js： `页面调用seaJS入口,包含seajs的配置信息`
 ```
 
 ***
 
-#### Get Start
+# Get Start
 
 1. 在**web**目录下创建HTML页面，eg.`index.html`
 2. 在HTML文件</body>前引入seajs，并指定seajs入口模块
+
 	```html
 	<!--使用seajs引入相关js文件-->
 	<script src="../static/libs/seajs/sea.js" type="text/javascript"></script>
 	<script type="text/javascript"> seajs.use('../static/libs/main'); </script>
 	```
+
 3. 在**static/js/pageController**目录下创建与HTML同名的js文件，eg.`index.js`
 5. 使用`define(function(require,exports,module){ });`定义模块
 6. 使用`exports.FunctionName=function(){ };`或`module.exports={ FunctionName : function(){ } };`定义模块接口
 4. 使用`require()`引入依赖的模块，eg.`var $ = require('jquery')`引入JQuery
 
-
 ***
 
-#### JSDoc
+# JSDoc
 
 > [HBuilder官方文档](http://ask.dcloud.net.cn/article/129)
 
@@ -63,3 +62,5 @@
  * @throw {TypeError} 参数类型不匹配 (异常信息)
  */
 ```
+
+

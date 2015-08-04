@@ -57,6 +57,7 @@ define(function(require, exports, module) {
 		var urls = location.href.split("/");
 		var page = urls[urls.length - 1];
 		return page.split(".html")[0];
+		//return page.split(".jsp")[0];
 	}
 
 	/**
@@ -69,9 +70,14 @@ define(function(require, exports, module) {
 				'base': basePath
 			});
 		}
-		require.async(['page/' + getCurrentPage()], function(page) {
-			//--异步加载多个模块，在加载完成时，执行回调
-		});
+		
+		try{
+			require.async(['page/' + getCurrentPage()], function(page) {
+				//--异步加载多个模块，在加载完成时，执行回调
+			});
+		}catch(e){
+			//TODO handle the exception
+		}
 	};
 
 	if (!~module.id.indexOf('?1')) //--判断是否自动load（说明：~-1=0）
