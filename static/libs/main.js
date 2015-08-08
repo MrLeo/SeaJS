@@ -18,11 +18,14 @@
  *                     `=---='
  *  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *              佛祖保佑       永无BUG
+ *
+ *    源码地址：https://github.com/MrLeo/SeaJS
  */
 define(function(require, exports, module) {
 	/* ---- seajs配置信息,更多配置信息参照：https://github.com/seajs/seajs/issues/262 ---- */
 	seajs.config({
 		/* ---- 请根据Web服务(IIS/Apache...)和项目结构调整base的路径 ---- */
+		//TODO：配置根路径
 		base: '/SeaJS/static/js', //--设置根路径
 		paths: { //--设置常用路径的别名
 			'commen'	: 'commen', 					//--业务共通过模块
@@ -52,17 +55,20 @@ define(function(require, exports, module) {
 		charset: 'utf-8' //--文件编码
 	});
 
-	/* ---- 获取当前页面名，不包含".html" ---- */
+	/* ---- 获取当前页面名，不包含后缀".html" ---- */
 	function getCurrentPage() {
 		var urls = location.href.split("/");
 		var page = urls[urls.length - 1];
+
+		//TODO：将修改后缀名
 		return page.split(".html")[0];
 		//return page.split(".jsp")[0];
 	}
 
 	/**
 	 * ---- 加载页面对应的js ----
-	 * @param {URIString} basePath 基础路径 
+	 * js文件名要和对应页面的文件名相同
+	 * @param {URIString} basePath 基础路径，非必须参数
 	 */
 	exports.load = function(basePath) {
 		if (basePath) {
@@ -75,11 +81,10 @@ define(function(require, exports, module) {
 			require.async(['page/' + getCurrentPage()], function(page) {
 				//--异步加载多个模块，在加载完成时，执行回调
 			});
-		}catch(e){
-			//TODO handle the exception
-		}
+		}catch(e){}
 	};
 
-	if (!~module.id.indexOf('?1')) //--判断是否自动load（说明：~-1=0）
-		exports.load();
+	//example：seajs.use('../static/libs/main.js?1');
+	//判断是否自动load（说明：~-1=0）
+	if (!~module.id.indexOf('?1')) exports.load();
 });
