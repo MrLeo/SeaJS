@@ -15,54 +15,61 @@
  *       | | :  `- \`.;`\ _ /`;.`/ - ` : | |
  *       \  \ `-.   \_ __\ /__ _/   .-` /  /
  *  ======`-.____`-.___\_____/___.-`____.-'======
- *                     `=---='
+ *                     ‘=---=’
  *  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *              佛祖保佑       永无BUG
- *
- *    源码地址：https://github.com/MrLeo/SeaJS
+ *                  佛祖保佑             永无BUG
+ * 
+ *        源码地址：https://github.com/MrLeo/SeaJS
  */
 define(function(require, exports, module) {
-	/* ---- seajs配置信息,更多配置信息参照：https://github.com/seajs/seajs/issues/262 ---- */
+	/*---- seajs配置信息,更多配置信息参照：https://github.com/seajs/seajs/issues/262 ----*/
 	seajs.config({
 		/* ---- 请根据Web服务(IIS/Apache...)和项目结构调整base的路径 ---- */
-		//TODO：配置根路径
-		base: '/SeaJS/static/js', //--设置根路径
-		paths: { //--设置常用路径的别名
-			'commen'	: 'commen', 					//--业务共通过模块
-			'data'		: 'data', 						//--数据、配置信息
-			'page'		: 'pageController', 			//--页面对应的模块
+		/** 
+		 * 模块标识：
+		 * 		https://github.com/seajs/seajs/issues/258
+		 * 		http://segmentfault.com/a/1190000000354302
+		 * 		(1) 相对路径	："../lib",
+         * 		(2) 顶级标识	："path/to/lib",
+    	 * 		(3) 根路径		："/lib"
+		 * 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。 
+		 */
+		paths: {	//--设置常用路径的别名 
+			'commen'	: 'static/js/commen', 				//--业务共通过模块
+			'data'		: 'static/js/data', 				//--数据、配置信息
+			'page'		: 'static/js/pageController', 		//--页面对应的模块
 			/* ---- 以下是和业务无关的库 ---- */
-			'seajs'		: '../../libs/seajs', 			//--seajs原始库
-			'jquery'	: '../../libs/jquery', 			//--JQuery库
-			'sweetalert': '../../libs/sweetalert/dist', //--SweetAlert
-			'tools'		: '../../libs/tools' 			//--工具库
+			'seajs'		: 'static/libs/seajs', 				//--seajs原始库
+			'jquery'	: 'static/libs/jquery', 			//--JQuery库
+			'sweetalert': 'static/libs/sweetalert/dist', 	//--SweetAlert
+			'tools'		: 'static/libs/tools' 				//--工具库
 		},
-		alias: { //--设置常用模块的别名
+		alias: {	//--设置常用模块的别名
 			'jquery'	: 'jquery/jquery-2.0.3',
 			'alert'		: 'sweetalert/sweetalert.min'
 		},
-		vars: { //--变量配置
+		base: '../',	//--TODO：配置根路径
+		vars: {			//--变量配置
 			'locale'	: 'zh-cn'
 		},
-		preload: [ //--预先加载
-			//'plugin-text', //--加载模本等文本文件
-			//'plugin-json', //--加载 JSON 数据
-			//'plugin-coffee', //--加载 coffee 脚本
-			//'plugin-less', //--加载 less 样式
+		preload: [	//--预先加载
+			//'plugin-text', 	//--加载模本等文本文件
+			//'plugin-json', 	//--加载 JSON 数据
+			//'plugin-coffee', 	//--加载 coffee 脚本
+			//'plugin-less', 	//--加载 less 样式
 			'jquery'
 		],
-		debug: true, //--调试模式
-		charset: 'utf-8' //--文件编码
+		debug: true, 			//--调试模式
+		charset: 'utf-8' 		//--文件编码
 	});
 
-	/* ---- 获取当前页面名，不包含后缀".html" ---- */
+	/*---- 获取当前页面名，不包含后缀".html" ----*/
 	function getCurrentPage() {
 		var urls = location.href.split("/");
 		var page = urls[urls.length - 1];
 
 		//TODO：将修改后缀名
 		return page.split(".html")[0];
-		//return page.split(".jsp")[0];
 	}
 
 	/**
