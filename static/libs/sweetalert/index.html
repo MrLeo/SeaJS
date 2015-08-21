@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html>
 
@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
   <title>SweetAlert</title>
-  
+
   <link rel="stylesheet" href="example/example.css">
   <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 
@@ -14,7 +14,6 @@
   <script src="dist/sweetalert-dev.js"></script>
   <link rel="stylesheet" href="dist/sweetalert.css">
   <!--.......................-->
-
 </head>
 
 <body>
@@ -33,7 +32,6 @@
 
 	<h5>Code:</h5>
 	<pre><span class="attr">alert</span>(<span class="str">"Oops... Something went wrong!"</span>);
-
 	</pre>
 
 	<div class="vs-icon"></div>
@@ -48,7 +46,6 @@
 </div>
 
 <p>Pretty cool huh? SweetAlert automatically centers itself on the page and looks great no matter if you're using a desktop computer, mobile or tablet. It's even highly customizeable, as you can see below!</p>
-
 
 <!-- Examples -->
 <h3>More examples</h3>
@@ -162,7 +159,6 @@
 });</pre>
 	</li>
 
-
 	<li class="input">
 		<div class="ui">
 			<p>A replacement for the "prompt" function</p>
@@ -197,9 +193,7 @@
 		<pre>&lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="tag">type</span>=<span class="str">"text/css"</span> <span class="tag">href</span>=<span class="str">"dist/sweetalert.css"</span>&gt;
 			&lt;<span class="tag">link</span> <span class="attr">rel</span>=<span class="str">"stylesheet"</span> <span class="tag">type</span>=<span class="str">"text/css"</span> <span class="tag">href</span>=<span class="str">"themes/twitter.css"</span>&gt;</pre>
 	</li>
-
 </ul>
-
 
 <!-- Download & Install -->
 <h3 id="download-section">Download & install</h3>
@@ -236,8 +230,6 @@
 </pre>
 	</li>
 </ol>
-
-
 
 <!-- Configuration -->
 <h3>Configuration</h3>
@@ -363,7 +355,6 @@
 	</tr>
 </table>
 
-
 <!-- Methods -->
 <h3>Methods</h3>
 
@@ -398,18 +389,14 @@
 	</tr>
 </table>
 
-
-
 <!-- Contribute -->
 <h3>Contribute</h3>
 <p>SweetAlert was created by <a href="http://tristanedwards.me" target="_blank">Tristan Edwards</a>, you can follow him on <a href="https://twitter.com/t4t5" target="_blank" class="twitter">Twitter</a> or <a href="https://dribbble.com/tristanedwards" target="_blank" class="dribbble">Dribbble</a> for updates and other cool projects!</p>
 <p>Feel free to fork SweetAlert on <a href="https://github.com/t4t5/sweetalert" class="github">GitHub</a> if you have any features that you want to add!</p>
 
-
 <footer>
 	<span class="te-logo">TE</span> • <script>document.write(new Date().getFullYear())</script>
 </footer>
-
 
 <script>
 
@@ -507,7 +494,7 @@ document.querySelector('ul.examples li.input button').onclick = function(){
 		closeOnConfirm: false,
 		animation: "slide-from-top",
 		inputPlaceholder: "Write something"
-	}, 
+	},
 	function(inputValue){
 		if (inputValue === false) return false;
 
@@ -515,9 +502,9 @@ document.querySelector('ul.examples li.input button').onclick = function(){
 			swal.showInputError("You need to write something!");
 			return false;
 		}
-		
+
 		swal("Nice!", 'You wrote: ' + inputValue, "success");
-		
+
 	});
 };
 
@@ -529,11 +516,6 @@ document.querySelector('ul.examples li.theme button').onclick = function() {
 		customClass: 'twitter'
 	});
 };
-
 </script>
-
-
-
 </body>
-
 </html>

@@ -6,10 +6,10 @@
  * jQuery-like functions for manipulating the DOM
  */
 import {
-  hasClass, addClass, removeClass, 
-  escapeHtml, 
-  _show, show, _hide, hide, 
-  isDescendant, 
+  hasClass, addClass, removeClass,
+  escapeHtml,
+  _show, show, _hide, hide,
+  isDescendant,
   getTopMargin,
   fadeIn, fadeOut,
   fireClick,
@@ -41,11 +41,9 @@ import {
   fixVerticalPosition
 } from './modules/handle-swal-dom';
 
-
 // Handle button events and keyboard events
 import { handleButton, handleConfirm, handleCancel } from './modules/handle-click';
 import handleKeyDown from './modules/handle-key';
-
 
 // Default values
 import defaultParams from './modules/default-params';
@@ -58,7 +56,6 @@ import setParameters from './modules/set-params';
 var previousWindowKeyDown;
 var lastFocusedButton;
 
-
 /*
  * Global sweetAlert function
  * (this is what the user calls)
@@ -66,217 +63,209 @@ var lastFocusedButton;
 var sweetAlert, swal;
 
 sweetAlert = swal = function() {
-  var customizations = arguments[0];
+    var customizations = arguments[0];
 
-  addClass(document.body, 'stop-scrolling');
-  resetInput();
+    addClass(document.body, 'stop-scrolling');
+    resetInput();
 
-  /*
-   * Use argument if defined or default value from params object otherwise.
-   * Supports the case where a default value is boolean true and should be
-   * overridden by a corresponding explicit argument which is boolean false.
-   */
-  function argumentOrDefault(key) {
-    var args = customizations;
-    return (args[key] === undefined) ?  defaultParams[key] : args[key];
-  }
-
-  if (customizations === undefined) {
-    logStr('SweetAlert expects at least 1 attribute!');
-    return false;
-  }
-
-  var params = extend({}, defaultParams);
-
-  switch (typeof customizations) {
-
-    // Ex: swal("Hello", "Just testing", "info");
-    case 'string':
-      params.title = customizations;
-      params.text  = arguments[1] || '';
-      params.type  = arguments[2] || '';
-      break;
-
-    // Ex: swal({ title:"Hello", text: "Just testing", type: "info" });
-    case 'object':
-      if (customizations.title === undefined) {
-        logStr('Missing "title" argument!');
-        return false;
-      }
-
-      params.title = customizations.title;
-
-      for (let customName in defaultParams) {
-        params[customName] = argumentOrDefault(customName);
-      }
-
-      // Show "Confirm" instead of "OK" if cancel button is visible
-      params.confirmButtonText = params.showCancelButton ? 'Confirm' : defaultParams.confirmButtonText;
-      params.confirmButtonText = argumentOrDefault('confirmButtonText');
-
-      // Callback function when clicking on "OK"/"Cancel"
-      params.doneFunction = arguments[1] || null;
-
-      break;
-
-    default:
-      logStr('Unexpected type of argument! Expected "string" or "object", got ' + typeof customizations);
-      return false;
-
-  }
-
-  setParameters(params);
-  fixVerticalPosition();
-  openModal(arguments[1]);
-
-  // Modal interactions
-  var modal = getModal();
-
-
-  /* 
-   * Make sure all modal buttons respond to all events
-   */
-  var $buttons = modal.querySelectorAll('button');
-  var buttonEvents = ['onclick', 'onmouseover', 'onmouseout', 'onmousedown', 'onmouseup', 'onfocus'];
-  var onButtonEvent = (e) => handleButton(e, params, modal);
-
-  for (let btnIndex = 0; btnIndex < $buttons.length; btnIndex++) {
-    for (let evtIndex = 0; evtIndex < buttonEvents.length; evtIndex++) {
-      let btnEvt = buttonEvents[evtIndex];
-      $buttons[btnIndex][btnEvt] = onButtonEvent;
+    /*
+     * Use argument if defined or default value from params object otherwise.
+     * Supports the case where a default value is boolean true and should be
+     * overridden by a corresponding explicit argument which is boolean false.
+     */
+    function argumentOrDefault(key) {
+        var args = customizations;
+        return (args[key] === undefined) ?  defaultParams[key] : args[key];
     }
-  }
 
-  // Clicking outside the modal dismisses it (if allowed by user)
-  getOverlay().onclick = onButtonEvent;
+    if (customizations === undefined) {
+        logStr('SweetAlert expects at least 1 attribute!');
+        return false;
+    }
 
-  previousWindowKeyDown = window.onkeydown;
+    var params = extend({}, defaultParams);
 
-  var onKeyEvent = (e) => handleKeyDown(e, params, modal);
-  window.onkeydown = onKeyEvent;
+    switch (typeof customizations) {
+        // Ex: swal("Hello", "Just testing", "info");
+        case 'string':
+            params.title = customizations;
+            params.text  = arguments[1] || '';
+            params.type  = arguments[2] || '';
+            break;
 
-  window.onfocus = function () {
-    // When the user has focused away and focused back from the whole window.
-    setTimeout(function () {
-      // Put in a timeout to jump out of the event sequence.
-      // Calling focus() in the event sequence confuses things.
-      if (lastFocusedButton !== undefined) {
-        lastFocusedButton.focus();
-        lastFocusedButton = undefined;
-      }
-    }, 0);
-  };
+            // Ex: swal({ title:"Hello", text: "Just testing", type: "info" });
+        case 'object':
+            if (customizations.title === undefined) {
+                logStr('Missing "title" argument!');
+                return false;
+            }
+
+            params.title = customizations.title;
+
+            for (let customName in defaultParams) {
+                params[customName] = argumentOrDefault(customName);
+            }
+
+            // Show "Confirm" instead of "OK" if cancel button is visible
+            params.confirmButtonText = params.showCancelButton ? 'Confirm' : defaultParams.confirmButtonText;
+            params.confirmButtonText = argumentOrDefault('confirmButtonText');
+
+            // Callback function when clicking on "OK"/"Cancel"
+            params.doneFunction = arguments[1] || null;
+
+            break;
+
+        default:
+            logStr('Unexpected type of argument! Expected "string" or "object", got ' + typeof customizations);
+            return false;
+    }
+
+    setParameters(params);
+    fixVerticalPosition();
+    openModal(arguments[1]);
+
+    // Modal interactions
+    var modal = getModal();
+
+    /*
+     * Make sure all modal buttons respond to all events
+     */
+    var $buttons = modal.querySelectorAll('button');
+    var buttonEvents = ['onclick', 'onmouseover', 'onmouseout', 'onmousedown', 'onmouseup', 'onfocus'];
+    var onButtonEvent = (e) => handleButton(e, params, modal);
+
+    for (let btnIndex = 0; btnIndex < $buttons.length; btnIndex++) {
+        for (let evtIndex = 0; evtIndex < buttonEvents.length; evtIndex++) {
+            let btnEvt = buttonEvents[evtIndex];
+            $buttons[btnIndex][btnEvt] = onButtonEvent;
+        }
+    }
+
+    // Clicking outside the modal dismisses it (if allowed by user)
+    getOverlay().onclick = onButtonEvent;
+
+    previousWindowKeyDown = window.onkeydown;
+
+    var onKeyEvent = (e) => handleKeyDown(e, params, modal);
+    window.onkeydown = onKeyEvent;
+
+    window.onfocus = function () {
+        // When the user has focused away and focused back from the whole window.
+        setTimeout(function () {
+            // Put in a timeout to jump out of the event sequence.
+            // Calling focus() in the event sequence confuses things.
+            if (lastFocusedButton !== undefined) {
+                lastFocusedButton.focus();
+                lastFocusedButton = undefined;
+            }
+        }, 0);
+    };
 };
-
-
 
 /*
  * Set default params for each popup
  * @param {Object} userParams
  */
 sweetAlert.setDefaults = swal.setDefaults = function(userParams) {
-  if (!userParams) {
-    throw new Error('userParams is required');
-  }
-  if (typeof userParams !== 'object') {
-    throw new Error('userParams has to be a object');
-  }
+    if (!userParams) {
+        throw new Error('userParams is required');
+    }
+    if (typeof userParams !== 'object') {
+        throw new Error('userParams has to be a object');
+    }
 
-  extend(defaultParams, userParams);
+    extend(defaultParams, userParams);
 };
-
 
 /*
  * Animation when closing modal
  */
 sweetAlert.close = swal.close = function() {
-  var modal = getModal();
+    var modal = getModal();
 
-  fadeOut(getOverlay(), 5);
-  fadeOut(modal, 5);
-  removeClass(modal, 'showSweetAlert');
-  addClass(modal, 'hideSweetAlert');
-  removeClass(modal, 'visible');
+    fadeOut(getOverlay(), 5);
+    fadeOut(modal, 5);
+    removeClass(modal, 'showSweetAlert');
+    addClass(modal, 'hideSweetAlert');
+    removeClass(modal, 'visible');
 
-  /*
-   * Reset icon animations
-   */
-  var $successIcon = modal.querySelector('.sa-icon.sa-success');
-  removeClass($successIcon, 'animate');
-  removeClass($successIcon.querySelector('.sa-tip'), 'animateSuccessTip');
-  removeClass($successIcon.querySelector('.sa-long'), 'animateSuccessLong');
+    /*
+     * Reset icon animations
+     */
+    var $successIcon = modal.querySelector('.sa-icon.sa-success');
+    removeClass($successIcon, 'animate');
+    removeClass($successIcon.querySelector('.sa-tip'), 'animateSuccessTip');
+    removeClass($successIcon.querySelector('.sa-long'), 'animateSuccessLong');
 
-  var $errorIcon = modal.querySelector('.sa-icon.sa-error');
-  removeClass($errorIcon, 'animateErrorIcon');
-  removeClass($errorIcon.querySelector('.sa-x-mark'), 'animateXMark');
+    var $errorIcon = modal.querySelector('.sa-icon.sa-error');
+    removeClass($errorIcon, 'animateErrorIcon');
+    removeClass($errorIcon.querySelector('.sa-x-mark'), 'animateXMark');
 
-  var $warningIcon = modal.querySelector('.sa-icon.sa-warning');
-  removeClass($warningIcon, 'pulseWarning');
-  removeClass($warningIcon.querySelector('.sa-body'), 'pulseWarningIns');
-  removeClass($warningIcon.querySelector('.sa-dot'), 'pulseWarningIns');
+    var $warningIcon = modal.querySelector('.sa-icon.sa-warning');
+    removeClass($warningIcon, 'pulseWarning');
+    removeClass($warningIcon.querySelector('.sa-body'), 'pulseWarningIns');
+    removeClass($warningIcon.querySelector('.sa-dot'), 'pulseWarningIns');
 
-  // Reset custom class (delay so that UI changes aren't visible)
-  setTimeout(function() {
-    var customClass = modal.getAttribute('data-custom-class');
-    removeClass(modal, customClass);
-  }, 300);
+    // Reset custom class (delay so that UI changes aren't visible)
+    setTimeout(function() {
+        var customClass = modal.getAttribute('data-custom-class');
+        removeClass(modal, customClass);
+    }, 300);
 
-  // Make page scrollable again
-  removeClass(document.body, 'stop-scrolling');
+    // Make page scrollable again
+    removeClass(document.body, 'stop-scrolling');
 
-  // Reset the page to its previous state
-  window.onkeydown = previousWindowKeyDown;
-  if (window.previousActiveElement) {
-    window.previousActiveElement.focus();
-  }
-  lastFocusedButton = undefined;
-  clearTimeout(modal.timeout);
+    // Reset the page to its previous state
+    window.onkeydown = previousWindowKeyDown;
+    if (window.previousActiveElement) {
+        window.previousActiveElement.focus();
+    }
+    lastFocusedButton = undefined;
+    clearTimeout(modal.timeout);
 
-  return true;
+    return true;
 };
-
 
 /*
  * Validation of the input field is done by user
  * If something is wrong => call showInputError with errorMessage
  */
 sweetAlert.showInputError = swal.showInputError = function(errorMessage) {
-  var modal = getModal();
+    var modal = getModal();
 
-  var $errorIcon = modal.querySelector('.sa-input-error');
-  addClass($errorIcon, 'show');
+    var $errorIcon = modal.querySelector('.sa-input-error');
+    addClass($errorIcon, 'show');
 
-  var $errorContainer = modal.querySelector('.sa-error-container');
-  addClass($errorContainer, 'show');
+    var $errorContainer = modal.querySelector('.sa-error-container');
+    addClass($errorContainer, 'show');
 
-  $errorContainer.querySelector('p').innerHTML = errorMessage;
+    $errorContainer.querySelector('p').innerHTML = errorMessage;
 
-  modal.querySelector('input').focus();
+    modal.querySelector('input').focus();
 };
-
 
 /*
  * Reset input error DOM elements
  */
 sweetAlert.resetInputError = swal.resetInputError = function(event) {
-  // If press enter => ignore
-  if (event && event.keyCode === 13) {
-    return false;
-  }
+    // If press enter => ignore
+    if (event && event.keyCode === 13) {
+        return false;
+    }
 
-  var $modal = getModal();
+    var $modal = getModal();
 
-  var $errorIcon = $modal.querySelector('.sa-input-error');
-  removeClass($errorIcon, 'show');
+    var $errorIcon = $modal.querySelector('.sa-input-error');
+    removeClass($errorIcon, 'show');
 
-  var $errorContainer = $modal.querySelector('.sa-error-container');
-  removeClass($errorContainer, 'show');
+    var $errorContainer = $modal.querySelector('.sa-error-container');
+    removeClass($errorContainer, 'show');
 };
 
 if (typeof window !== 'undefined') {
-  // The 'handle-click' module requires
-  // that 'sweetAlert' was set as global.
-  window.sweetAlert = window.swal = sweetAlert;
+    // The 'handle-click' module requires
+    // that 'sweetAlert' was set as global.
+    window.sweetAlert = window.swal = sweetAlert;
 } else {
-  logStr('SweetAlert is a frontend module!');
+    logStr('SweetAlert is a frontend module!');
 }

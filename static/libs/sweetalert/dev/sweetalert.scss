@@ -2,7 +2,6 @@
 // 2014-2015 (c) - Tristan Edwards
 // github.com/t4t5/sweetalert
 
-
 body.stop-scrolling {
   height: 100%;
   overflow: hidden;
@@ -185,7 +184,7 @@ body.stop-scrolling {
       &::-webkit-input-placeholder {
         transition: opacity 0.3s 0.03s ease;
         opacity: 0.5;
-      }      
+      }
     }
     &::-moz-placeholder {
       color: lighten(#575757, 40);
@@ -455,7 +454,6 @@ body.stop-scrolling {
       background-repeat: no-repeat;
     }
   }
-
 }
 
 /*
@@ -474,7 +472,6 @@ body.stop-scrolling {
   -webkit-animation: #{$str};
   animation: #{$str};
 }
-
 
 // Modal animation
 
@@ -537,8 +534,6 @@ body.stop-scrolling {
   }
 }
 
-
-
 // Success icon animation
 
 @include keyframes(animateSuccessTip) {
@@ -570,7 +565,6 @@ body.stop-scrolling {
 .sa-icon.sa-success.animate::after {
   @include animation('rotatePlaceholder 4.25s ease-in');
 }
-
 
 // Error icon animation
 

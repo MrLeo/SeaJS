@@ -18,23 +18,23 @@
  *                     ‘=---=’
  *  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  *             佛祖保佑       永无BUG
- * 
+ *
  *        源码地址：https://github.com/MrLeo/SeaJS
  */
 define(function(require, exports, module) {
 	/*---- seajs配置信息,更多配置信息参照：https://github.com/seajs/seajs/issues/262 ----*/
 	seajs.config({
 		/* ---- 请根据Web服务(IIS/Apache...)和项目结构调整base的路径 ---- */
-		/** 
+		/**
 		 * 模块标识：
 		 * 		https://github.com/seajs/seajs/issues/258
 		 * 		http://segmentfault.com/a/1190000000354302
 		 * 		(1) 相对路径	："../lib",
          * 		(2) 顶级标识	："path/to/lib",
     	 * 		(3) 根路径		："/lib"
-		 * 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。 
+		 * 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。
 		 */
-		paths: {	//--设置常用路径的别名 
+		paths: {	//--设置常用路径的别名
 			'commen'	: 'static/js/commen', 				//--业务共通过模块
 			'data'		: 'static/js/data', 				//--数据、配置信息
 			'page'		: 'static/js/pageController', 		//--页面对应的模块
@@ -86,7 +86,7 @@ define(function(require, exports, module) {
 				'base': basePath
 			});
 		}
-		
+
 		try{
 			require.async(['page/' + getCurrentPage()], function(page) {
 				//--异步加载多个模块，在加载完成时，执行回调

@@ -36,7 +36,7 @@ var logStr = function(string) {
 };
 
 /*
- * Set hover, active and focus-states for buttons 
+ * Set hover, active and focus-states for buttons
  * (source: http://www.sitepoint.com/javascript-generate-lighter-darker-color)
  */
 var colorLuminance = function(hex, lum) {
@@ -60,7 +60,6 @@ var colorLuminance = function(hex, lum) {
 
   return rgb;
 };
-
 
 export {
   extend,
