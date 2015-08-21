@@ -45,8 +45,11 @@ define(function(require, exports, module) {
 			'tools'		: 'static/libs/tools' 				//--工具库
 		},
 		alias: {	//--设置常用模块的别名
+			'base'		: 'common/base',
+			'console'	: 'tools/console/log',
 			'jquery'	: 'jquery/jquery-2.0.3',
-			'alert'		: 'sweetalert/sweetalert.min'
+			'alert'		: 'sweetalert/sweetalert.min',
+			'superslide':'tools/slide/jquery.SuperSlide.2.1.1'
 		},
 		base: '../',	//--TODO：配置根路径
 		vars: {			//--变量配置
