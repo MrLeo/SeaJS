@@ -9,7 +9,6 @@ An awesome replacement for JavaScript's alert.
 
 [Learn how to use it!](https://www.ludu.co/lesson/how-to-use-sweetalert)
 
-
 Usage
 -----
 
@@ -33,12 +32,10 @@ Alternatively, download the package and reference the JavaScript and CSS files m
 ```
 **Note:** If you're using an older version than v1.0.0, the files are `lib/sweet-alert.min.js` and `lib/sweet-alert.css`
 
-
 Tutorial
 --------
 
 The easiest way to get started is follow the [SweetAlert tutorial on Ludu](https://www.ludu.co/lesson/how-to-use-sweetalert)!
-
 
 Examples
 --------
@@ -85,12 +82,11 @@ sweerAlert({
   closeOnConfirm: false,
   animation: "slide-from-top"
 }, function(inputValue){
-  console.log("You wrote", inputValue);   
+  console.log("You wrote", inputValue);
 });
 ```
 
 [View more examples](http://t4t5.github.io/sweetalert)
-
 
 Themes
 ------
@@ -100,7 +96,6 @@ SweetAlert can easily be themed to fit your site's design. SweetAlert comes with
 <link rel="stylesheet" href="dist/sweetalert.css">
 <link rel="stylesheet" href="themes/twitter/twitter.css">
 ```
-
 
 Browser compatibility
 ---------------------
@@ -115,7 +110,6 @@ SweetAlert works in most major browsers (yes, even IE). Some details:
 - **Chrome 14+**: Works!
 - **Opera 15+**: Works!
 
-
 Contributing
 ------------
 
@@ -129,7 +123,6 @@ If you want to contribute:
 
 - After you're done, make a pull request and wait for approval! :)
 
-
 Related projects
 ----------------
 
@@ -137,4 +130,3 @@ Related projects
 * [SweetAlert for Bootstrap](https://github.com/lipis/bootstrap-sweetalert)
 * [SweetAlert for AngularJS](https://github.com/oitozero/ngSweetAlert)
 * [SweetAlert for RubyOnRails](https://github.com/sharshenov/sweetalert-rails)
-

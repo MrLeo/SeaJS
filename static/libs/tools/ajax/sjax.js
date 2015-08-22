@@ -1,8 +1,8 @@
-define(function(require, exports, module) {
-	/**
+define(function (require, exports, module) {
+    /**
 	 * Blog : http://www.cnblogs.com/snandy/archive/2011/05/05/2034312.html
 	 * GitHub : https://github.com/snandy/io
-	 * 
+	 *
 	 * JavaScript JSONP tool
 	 * Copyright (c) 2011 snandy
 	 *
@@ -45,9 +45,8 @@ define(function(require, exports, module) {
 	 * 后台接受一个callback参数，为响应函数
 	 * 格式： snandy_jsonp_xxx(json)
 	 */
-	// 通过 exports 对外提供接口
-	exports.Sjax = function(win) {
-
+    // 通过 exports 对外提供接口
+    exports.Sjax = function (win) {
         var ie678 = !-[1, ],
             opera = win.opera,
             doc = win.document,
@@ -72,7 +71,7 @@ define(function(require, exports, module) {
         }
 
         function request(url, opt) {
-            function fn() {}
+            function fn() { }
             var opt = opt || {},
                 data = opt.data,
                 success = opt.success || fn,
@@ -106,25 +105,25 @@ define(function(require, exports, module) {
             }
 
             function fixOnerror() {
-                setTimeout(function() {
+                setTimeout(function () {
                     if (!done) {
                         callback();
                     }
                 }, timeout);
             }
             if (ie678) {
-                script.onreadystatechange = function() {
-                        var readyState = this.readyState;
-                        if (!done && (readyState == 'loaded' || readyState == 'complete')) {
-                            callback(true);
-                        }
+                script.onreadystatechange = function () {
+                    var readyState = this.readyState;
+                    if (!done && (readyState == 'loaded' || readyState == 'complete')) {
+                        callback(true);
                     }
-                    //fixOnerror();
+                }
+                //fixOnerror();
             } else {
-                script.onload = function() {
+                script.onload = function () {
                     callback(true);
                 }
-                script.onerror = function() {
+                script.onerror = function () {
                     callback();
                 }
                 if (opera) {

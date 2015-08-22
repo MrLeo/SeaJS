@@ -1,5 +1,5 @@
-define(function(require, exports, module) {
-	/*
+define(function (require, exports, module) {
+    /*
 	 * JsonSQL
 	 * By: Trent Richardson [http://trentrichardson.com]
 	 * Version 0.1
@@ -20,109 +20,105 @@ define(function(require, exports, module) {
 	 * limitations under the License.
 	 */
 
-	var jsonsql = {
+    var jsonsql = {
+        query: function (sql, json) {
+            var returnfields = sql.match(/^(select)\s+([a-z0-9_\,\.\s\*]+)\s+from\s+([a-z0-9_\.]+)(?: where\s+\((.+)\))?\s*(?:order\sby\s+([a-z0-9_\,]+))?\s*(asc|desc|ascnum|descnum)?\s*(?:limit\s+([0-9_\,]+))?/i);
 
-		query: function(sql, json) {
+            var ops = {
+                fields: returnfields[2].replace(' ', '').split(','),
+                from: returnfields[3].replace(' ', ''),
+                where: (returnfields[4] == undefined) ? "true" : returnfields[4],
+                orderby: (returnfields[5] == undefined) ? [] : returnfields[5].replace(' ', '').split(','),
+                order: (returnfields[6] == undefined) ? "asc" : returnfields[6],
+                limit: (returnfields[7] == undefined) ? [] : returnfields[7].replace(' ', '').split(',')
+            };
 
-			var returnfields = sql.match(/^(select)\s+([a-z0-9_\,\.\s\*]+)\s+from\s+([a-z0-9_\.]+)(?: where\s+\((.+)\))?\s*(?:order\sby\s+([a-z0-9_\,]+))?\s*(asc|desc|ascnum|descnum)?\s*(?:limit\s+([0-9_\,]+))?/i);
+            return this.parse(json, ops);
+        },
 
-			var ops = {
-				fields: returnfields[2].replace(' ', '').split(','),
-				from: returnfields[3].replace(' ', ''),
-				where: (returnfields[4] == undefined) ? "true" : returnfields[4],
-				orderby: (returnfields[5] == undefined) ? [] : returnfields[5].replace(' ', '').split(','),
-				order: (returnfields[6] == undefined) ? "asc" : returnfields[6],
-				limit: (returnfields[7] == undefined) ? [] : returnfields[7].replace(' ', '').split(',')
-			};
+        parse: function (json, ops) {
+            var o = {
+                fields: ["*"],
+                from: "json",
+                where: "",
+                orderby: [],
+                order: "asc",
+                limit: []
+            };
+            for (i in ops) o[i] = ops[i];
 
-			return this.parse(json, ops);
-		},
+            var result = [];
+            result = this.returnFilter(json, o);
+            result = this.returnOrderBy(result, o.orderby, o.order);
+            result = this.returnLimit(result, o.limit);
 
-		parse: function(json, ops) {
-			var o = {
-				fields: ["*"],
-				from: "json",
-				where: "",
-				orderby: [],
-				order: "asc",
-				limit: []
-			};
-			for (i in ops) o[i] = ops[i];
+            return result;
+        },
 
-			var result = [];
-			result = this.returnFilter(json, o);
-			result = this.returnOrderBy(result, o.orderby, o.order);
-			result = this.returnLimit(result, o.limit);
+        returnFilter: function (json, jsonsql_o) {
+            var jsonsql_scope = eval(jsonsql_o.from);
+            var jsonsql_result = [];
+            var jsonsql_rc = 0;
 
-			return result;
-		},
+            if (jsonsql_o.where == "")
+                jsonsql_o.where = "true";
 
-		returnFilter: function(json, jsonsql_o) {
+            for (var jsonsql_i in jsonsql_scope) {
+                with (jsonsql_scope[jsonsql_i]) {
+                    if (eval(jsonsql_o.where)) {
+                        jsonsql_result[jsonsql_rc++] = this.returnFields(jsonsql_scope[jsonsql_i], jsonsql_o.fields);
+                    }
+                }
+            }
 
-			var jsonsql_scope = eval(jsonsql_o.from);
-			var jsonsql_result = [];
-			var jsonsql_rc = 0;
+            return jsonsql_result;
+        },
 
-			if (jsonsql_o.where == "")
-				jsonsql_o.where = "true";
+        returnFields: function (scope, fields) {
+            if (fields.length == 0)
+                fields = ["*"];
 
-			for (var jsonsql_i in jsonsql_scope) {
-				with(jsonsql_scope[jsonsql_i]) {
-					if (eval(jsonsql_o.where)) {
-						jsonsql_result[jsonsql_rc++] = this.returnFields(jsonsql_scope[jsonsql_i], jsonsql_o.fields);
-					}
-				}
-			}
+            if (fields[0] == "*")
+                return scope;
 
-			return jsonsql_result;
-		},
+            var returnobj = {};
+            for (var i in fields)
+                returnobj[fields[i]] = scope[fields[i]];
 
-		returnFields: function(scope, fields) {
-			if (fields.length == 0)
-				fields = ["*"];
+            return returnobj;
+        },
 
-			if (fields[0] == "*")
-				return scope;
+        returnOrderBy: function (result, orderby, order) {
+            if (orderby.length == 0)
+                return result;
 
-			var returnobj = {};
-			for (var i in fields)
-				returnobj[fields[i]] = scope[fields[i]];
+            result.sort(function (a, b) {
+                switch (order.toLowerCase()) {
+                    case "desc":
+                        return (eval('a.' + orderby[0] + ' < b.' + orderby[0])) ? 1 : -1;
+                    case "asc":
+                        return (eval('a.' + orderby[0] + ' > b.' + orderby[0])) ? 1 : -1;
+                    case "descnum":
+                        return (eval('a.' + orderby[0] + ' - b.' + orderby[0]));
+                    case "ascnum":
+                        return (eval('b.' + orderby[0] + ' - a.' + orderby[0]));
+                }
+            });
 
-			return returnobj;
-		},
+            return result;
+        },
 
-		returnOrderBy: function(result, orderby, order) {
-			if (orderby.length == 0)
-				return result;
+        returnLimit: function (result, limit) {
+            switch (limit.length) {
+                case 0:
+                    return result;
+                case 1:
+                    return result.splice(0, limit[0]);
+                case 2:
+                    return result.splice(limit[0] - 1, limit[1]);
+            }
+        }
+    };
 
-			result.sort(function(a, b) {
-				switch (order.toLowerCase()) {
-					case "desc":
-						return (eval('a.' + orderby[0] + ' < b.' + orderby[0])) ? 1 : -1;
-					case "asc":
-						return (eval('a.' + orderby[0] + ' > b.' + orderby[0])) ? 1 : -1;
-					case "descnum":
-						return (eval('a.' + orderby[0] + ' - b.' + orderby[0]));
-					case "ascnum":
-						return (eval('b.' + orderby[0] + ' - a.' + orderby[0]));
-				}
-			});
-
-			return result;
-		},
-
-		returnLimit: function(result, limit) {
-			switch (limit.length) {
-				case 0:
-					return result;
-				case 1:
-					return result.splice(0, limit[0]);
-				case 2:
-					return result.splice(limit[0] - 1, limit[1]);
-			}
-		}
-
-	};
-	
-	return jsonsql;
+    return jsonsql;
 });
