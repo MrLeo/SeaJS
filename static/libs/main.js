@@ -36,7 +36,7 @@ define(function(require, exports, module) {
 		 */
 		paths: {	//--设置常用路径的别名 
 			'commen'	: 'static/js/commen', 				//--业务共通过模块
-			'data'		: 'static/js/data', 				//--数据、配置信息
+			'module'	: 'static/js/module', 				//--数据、配置信息
 			'page'		: 'static/js/pageController', 		//--页面对应的模块
 			/* ---- 以下是和业务无关的库 ---- */
 			'seajs'		: 'static/libs/seajs', 				//--seajs原始库
