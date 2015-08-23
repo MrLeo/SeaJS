@@ -10,7 +10,7 @@
 	- | -- css：样式文件
 	- | -- img：图片文件
 	- | -- js：业务相关的JS模块文件
-		- | -- **commen**：业务相关的共通JS模块文件
+		- | -- **common**：业务相关的共通JS模块文件
 		- | -- **module**： 业务相关的data模块
 		- | -- **pageController**： 与web文件夹中的页面文件同名的模块，如：index.js
 	- |-- libs: 插件包
@@ -76,7 +76,7 @@ seajs.config({
 		* 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。
 		*/
 	paths: {	//--设置常用路径的别名
-		'commen'	: 'static/js/commen', 				//--业务共通过模块
+		'common'	: 'static/js/common', 				//--业务共通过模块
 		'module'	: 'static/js/module', 				//--业务数据、功能模块
 		'page'		: 'static/js/pageController', 		//--页面对应的模块
 		/* ---- 以下是和业务无关的库 ---- */
