@@ -17,7 +17,7 @@
  *  ======`-.____`-.___\_____/___.-`____.-'======
  *                     ‘=---=’
  *  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- *             佛祖保佑       永无BUG
+ *                佛祖保佑   永无BUG
  *
  *        源码地址：https://github.com/MrLeo/SeaJS
  */
@@ -39,21 +39,20 @@ define(function(require, exports, module) {
 			'module'	: 'static/js/module', 				//--业务数据、功能模块
 			'page'		: 'static/js/pageController', 		//--页面对应的模块
 			/* ---- 以下是和业务无关的库 ---- */
-			'lib'		: 'static/libs',
+			'libs'		: 'static/libs',					//--插件库
 			'tools'		: 'static/libs/tools', 				//--工具库
 			/* ---- 第三方插件 ---- */
 			'jquery'	: 'static/libs/jquery', 			//--JQuery库
-			'sweetalert': 'static/libs/sweetalert/dist', 	//--SweetAlert
 			
 			'seajs'		: 'static/libs/seajs' 				//--seajs原始库
 		},
 		alias: {	//--设置常用模块的别名
-			'base'		: 'common/base',
-			'console'	: 'tools/console/log',
-			'alert'		: 'sweetalert/sweetalert.min',
-			'superslide': 'lib/super-slide/jquery.SuperSlide.2.1.1',
+			'base'		: 'common/base',								//--base
+			'console'	: 'tools/console/log',							//--console.log
+			'alert'		: 'libs/sweetalert/dist/sweetalert.min',		//--SweetAlert
+			'superslide': 'libs/super-slide/jquery.SuperSlide.2.1.1',	//superslider
 			
-			'jquery'	: 'jquery/jquery-2.0.3'
+			'jquery'	: 'jquery/jquery-2.0.3'							//jquery
 		},
 		base: '../',	//--TODO：配置根路径
 		vars: {			//--变量配置

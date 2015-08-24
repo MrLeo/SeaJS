@@ -15,9 +15,11 @@
 		- | -- **pageController**： 与web文件夹中的页面文件同名的模块，如：index.js
 	- |-- libs: 插件包
 		- | -- **main.js**： `页面调用seaJS入口,包含seajs的配置信息`
+		- | -- **lib**： `插件包`
 		- | -- **tools**： `与业务无关的工具包`
 		- | -- seajs： seaJS原始插件包
 		- | -- jquery： JQuery插件包
+		- | -- ...
 
 ***
 
