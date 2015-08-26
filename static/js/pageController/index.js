@@ -2,7 +2,7 @@ define(function (require, exports, module) {
     var $ = require('jquery');
     var v = require('model/version');
     var d = require('tools/convert/date');
-    var m = require('commen/baidu-map');
+    var m = require('common/baidu-map');
     var console = require('console');
 
     console.log("进入:", module.id);
