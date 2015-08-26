@@ -35,17 +35,17 @@ define(function (require, exports, module) {
 		 * 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。
 		 */
 		paths: {	//--设置常用路径的别名
-			'common'	: 'static/js/common', 				//--业务共通过模块
-			'model'		: 'static/js/model', 				//--业务数据、功能模块
-			'page'		: 'static/js/pageController', 		//--页面对应的模块
+			'common'	: 'static/js/common',				//--业务共通过模块
+			'model'		: 'static/js/model',				//--业务数据、功能模块
+			'page'		: 'static/js/pageController',		//--页面对应的模块
 			/* ---- 以下是和业务无关的库 ---- */
 			'libs'		: 'static/libs',					//--插件包
-			'tools'		: 'static/libs/tools', 				//--工具库
+			'tools'		: 'static/libs/tools',				//--工具库
 			/* ---- 第三方插件 ---- */
-			'jquery'	: 'static/libs/jquery', 			//--JQuery库
-			'sweetalert': 'static/libs/sweetalert/dist', 	//--SweetAlert
+			'jquery'	: 'static/libs/jquery',				//--JQuery库
+			'sweetalert': 'static/libs/sweetalert/dist',	//--SweetAlert
 			
-			'seajs'		: 'static/libs/seajs' 				//--seajs原始库
+			'seajs'		: 'static/libs/seajs'				//--seajs原始库
 		},
 		alias: {	//--设置常用模块的别名
 			'base'		: 'common/base',
@@ -61,14 +61,14 @@ define(function (require, exports, module) {
 			'locale'	: 'zh-cn'
 		},
 		preload: [	//--预先加载
-			//'plugin-text', 	//--加载模本等文本文件
-			//'plugin-json', 	//--加载 JSON 数据
-			//'plugin-coffee', 	//--加载 coffee 脚本
-			//'plugin-less', 	//--加载 less 样式
+			//'plugin-text',	//--加载模本等文本文件
+			//'plugin-json',	//--加载 JSON 数据
+			//'plugin-coffee',	//--加载 coffee 脚本
+			//'plugin-less',	//--加载 less 样式
 			'jquery'
 		],
-		debug: true, 			//--调试模式
-		charset: 'utf-8' 		//--文件编码
+		debug: true,			//--调试模式
+		charset: 'utf-8'		//--文件编码
 	});
 
 	/*---- 获取当前页面名，不包含后缀".html" ----*/
