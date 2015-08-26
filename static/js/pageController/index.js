@@ -1,6 +1,6 @@
 define(function (require, exports, module) {
     var $ = require('jquery');
-    var v = require('module/version');
+    var v = require('model/version');
     var d = require('tools/convert/date');
     var m = require('commen/baidu-map');
     var console = require('console');
@@ -63,4 +63,21 @@ define(function (require, exports, module) {
 
     var alert = require('alert');
     swal("版本号：" + v.version + "\n" + "作者：" + v.powerBy + "\n" + "简介：" + v.desc);
+
+
+    require("ko");
+    var model = {
+        datas: ko.observableArray([
+            { item: 1 },
+            { item: 2 },
+            { item: 3 },
+            { item: 4 },
+            { item: 5 },
+            { item: 6 },
+            { item: 7 },
+            { item: 8 },
+            { item: 9 }
+        ])
+    }
+    ko.applyBindings(model, document.getElementById("koList"));
 });
