@@ -38,9 +38,11 @@ define(function (require, exports, module) {
 			'common'	: 'static/js/common',				//--业务共通过模块
 			'model'		: 'static/js/model',				//--业务数据、功能模块
 			'page'		: 'static/js/pageController',		//--页面对应的模块
+
 			/* ---- 以下是和业务无关的库 ---- */
 			'libs'		: 'static/libs',					//--插件包
 			'tools'		: 'static/libs/tools',				//--工具库
+			
 			/* ---- 第三方插件 ---- */
 			'jquery'	: 'static/libs/jquery',				//--JQuery库
 			'sweetalert': 'static/libs/sweetalert/dist',	//--SweetAlert
