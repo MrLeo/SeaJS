@@ -29,8 +29,8 @@ define(function (require, exports, module) {
 		 * 模块标识：
 		 * 		https://github.com/seajs/seajs/issues/258
 		 * 		http://segmentfault.com/a/1190000000354302
-		 * 		(1) 相对路径	："../libs",
-		 * 		(2) 顶级标识	："path/to/libs",
+		 * 		(1) 相对路径		："../libs",
+		 * 		(2) 顶级标识		："path/to/libs",
 		 * 		(3) 根路径		："/libs"
 		 * 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。
 		 */
@@ -53,6 +53,7 @@ define(function (require, exports, module) {
 			'base'		: 'common/base',
 			'ko'		: 'libs/knockoutjs/knockout-3.3.0',
 			'console'	: 'tools/console/log',
+			'ajax'		: 'tools/ajax/ajax',
 			'alert'		: 'sweetalert/sweetalert.min',
 			'superslide': 'libs/super-slide/jquery.SuperSlide.2.1.1',
 			
