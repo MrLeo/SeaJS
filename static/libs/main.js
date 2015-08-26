@@ -36,10 +36,10 @@ define(function (require, exports, module) {
 		 */
 		paths: {	//--设置常用路径的别名
 			'common'	: 'static/js/common', 				//--业务共通过模块
-			'model'	    : 'static/js/model', 				//--业务数据、功能模块
+			'model'		: 'static/js/model', 				//--业务数据、功能模块
 			'page'		: 'static/js/pageController', 		//--页面对应的模块
 			/* ---- 以下是和业务无关的库 ---- */
-			'libs'		: 'static/libs',                    //--ca
+			'libs'		: 'static/libs',					//--插件包
 			'tools'		: 'static/libs/tools', 				//--工具库
 			/* ---- 第三方插件 ---- */
 			'jquery'	: 'static/libs/jquery', 			//--JQuery库
@@ -48,8 +48,8 @@ define(function (require, exports, module) {
 			'seajs'		: 'static/libs/seajs' 				//--seajs原始库
 		},
 		alias: {	//--设置常用模块的别名
-			'base'      : 'common/base',
-			'ko'        : 'libs/knockoutjs/knockout-3.3.0',
+			'base'		: 'common/base',
+			'ko'		: 'libs/knockoutjs/knockout-3.3.0',
 			'console'	: 'tools/console/log',
 			'alert'		: 'sweetalert/sweetalert.min',
 			'superslide': 'libs/super-slide/jquery.SuperSlide.2.1.1',
