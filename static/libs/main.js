@@ -50,14 +50,15 @@ define(function (require, exports, module) {
 			'seajs'		: 'static/libs/seajs'				//--seajs原始库
 		},
 		alias: {	//--设置常用模块的别名
-			'base'		: 'common/base',
-			'ko'		: 'libs/knockoutjs/knockout-3.3.0',
-			'console'	: 'tools/console/log',
-			'ajax'		: 'tools/ajax/ajax',
-			'alert'		: 'sweetalert/sweetalert.min',
-			'superslide': 'libs/super-slide/jquery.SuperSlide.2.1.1',
+			'base'		: 'common/base',								//--base信息
+			'ko'		: 'libs/knockoutjs/knockout-3.3.0',				//--knockout 动态数据
+			'console'	: 'tools/console/log',							//--console.log 日志输出
+			'ajax'		: 'tools/ajax/ajax',							//--javascript ajax
+			'alert'		: 'sweetalert/sweetalert.min',					//--sweetalert 弹出框
+			'superslide': 'libs/super-slide/jquery.SuperSlide.2.1.1',	//--superslide 选项卡、轮播
+			'lq'		: 'static/libs/lq-date/js/lq.datetimepick', 	//--lq-date 日历控件
 			
-			'jquery'	: 'jquery/jquery-2.0.3'
+			'jquery'	: 'jquery/jquery-2.0.3'							//--JQuery
 		},
 		base: '../',	//--TODO：配置根路径
 		vars: {			//--变量配置
