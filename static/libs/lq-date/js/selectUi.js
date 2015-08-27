@@ -1,5 +1,5 @@
 define(function(require, exports, module) {
-	var $ = require('../../jquery/jquery-2.0.3');
+	var $ = require('../../jquery/jquery-2.0.3.min');
 	var LQ = jQuery;
 	return LQ.selectUi = {
 		show: function(options) {

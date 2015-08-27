@@ -1,10 +1,10 @@
 define(function (require, exports, module) {
-    //var $ = require('jquery');
+	var jQuery = require("jquery-2.0.3"); 
     var v = require('model/version');
     var d = require('tools/convert/date');
     var m = require('common/baidu-map');
-    var console = require('console');
-
+    require('sweetalert');
+    
     console.log("进入:", module.id);
 
     var text = "这是通过seajs引用jQuery写入的。</br><hr></br>" + "版本号：" + v.version + "</br>" + "作者：" + v.powerBy + "</br>" + "简介：" + v.desc + "</br>";
@@ -45,39 +45,50 @@ define(function (require, exports, module) {
     function onError(error) {
         switch (error.code) {
             case 1:
-                alert("位置服务被拒绝");
+                swal("位置服务被拒绝");
                 break;
             case 2:
-                alert("暂时获取不到位置信息");
+                swal("暂时获取不到位置信息");
                 break;
             case 3:
-                alert("获取信息超时");
+                swal("获取信息超时");
                 break;
             case 4:
-                alert("未知错误");
+                swal("未知错误");
                 break;
         }
     }
 
     /*---- 获取地理位置坐标 End ----*/
 
-    var alert = require('alert');
     swal("版本号：" + v.version + "\n" + "作者：" + v.powerBy + "\n" + "简介：" + v.desc);
 
 
     require("ko");
     var model = {
         datas: ko.observableArray([
-            { item: 1 },
-            { item: 2 },
-            { item: 3 },
-            { item: 4 },
-            { item: 5 },
-            { item: 6 },
-            { item: 7 },
-            { item: 8 },
-            { item: 9 }
+            { item: "2015-8-27" },
+            { item: "2015-8-26" },
+            { item: "2015-8-25" },
+            { item: "2015-8-24" },
+            { item: "2015-8-23" },
+            { item: "2015-8-22" },
+            { item: "2015-8-21" },
+            { item: "2015-8-20" }
         ])
     }
     ko.applyBindings(model, document.getElementById("koList"));
+    
+    require("lq");
+    $('#koList').on('click','input',function(e){
+    	e.stopPropagation();
+		jQuery(this).lqdatetimepicker({
+			css: 'datetime-day',
+			dateType: 'D',
+			selectback: function() {
+				
+			}
+		});
+		return false;
+    });
 });

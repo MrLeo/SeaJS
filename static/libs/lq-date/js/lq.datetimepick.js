@@ -3,7 +3,7 @@ define(function(require, exports, module) {
 	 *	http://www.jq22.com/jquery-info3189 
 	 */
 	
-	var $ = require('../../jquery/jquery-2.0.3');
+	var $ = require('../../jquery/jquery-2.0.3.min');
 	var LQ = {};
 	LQ.selectUi = require('./selectUi');
 	

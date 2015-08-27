@@ -6,6 +6,7 @@
     <link type="image/x-icon" rel="shortcut icon" href="../static/img/favicon.ico" />
     <!--引用样式文件-->
     <link rel="stylesheet" type="text/css" href="../static/libs/sweetalert/dist/sweetalert.css" />
+    <link rel="stylesheet" href="../static/libs/lq-date/css/lq.datetimepick.css" />
 </head>
 <body>
     <div id="output"></div>
@@ -17,7 +18,7 @@
     <div>knockoutjs 动态绑定数据</div>
     <ul id="koList" data-bind="foreach:datas">
         <li>
-        	<input type="text" name="text" id="text" value="2015-8-27"  data-bind="text:item"/>
+        	<input type="text" name="text" class="text"  data-bind="value:item"/>
         </li>
     </ul>
 

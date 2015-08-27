@@ -54,7 +54,7 @@ define(function (require, exports, module) {
 			'ko'			: 'libs/knockoutjs/knockout-3.3.0',					//--knockout 动态数据
 			'console'		: 'tools/console/log',								//--console.log 日志输出
 			'ajax'			: 'tools/ajax/ajax',								//--javascript ajax
-			'alert'			: 'sweetalert/sweetalert.min',						//--sweetalert 弹出框
+			'sweetalert'	: 'sweetalert/sweetalert.min',						//--sweetalert 弹出框
 			'superslide'	: 'libs/super-slide/jquery.SuperSlide.2.1.1',		//--superslide 选项卡、轮播
 			'lq'			: 'static/libs/lq-date/js/lq.datetimepick',			//--lq-date 日历控件
 			'dateRange'		: 'static/libs/pickerDateRange/dateRange',			//--pickerDateRange 日期区间控件
