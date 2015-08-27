@@ -57,6 +57,7 @@ define(function (require, exports, module) {
 			'alert'		: 'sweetalert/sweetalert.min',					//--sweetalert 弹出框
 			'superslide': 'libs/super-slide/jquery.SuperSlide.2.1.1',	//--superslide 选项卡、轮播
 			'lq'		: 'static/libs/lq-date/js/lq.datetimepick', 	//--lq-date 日历控件
+			'dateRange'	: 'static/libs/pickerDateRange/dateRange',		//--pickerDateRange 日期区间控件
 			
 			'jquery'	: 'jquery/jquery-2.0.3'							//--JQuery
 		},
