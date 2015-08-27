@@ -59,7 +59,7 @@ define(function (require, exports, module) {
 			'lq'		: 'static/libs/lq-date/js/lq.datetimepick', 	//--lq-date 日历控件
 			'dateRange'	: 'static/libs/pickerDateRange/dateRange',		//--pickerDateRange 日期区间控件
 			
-			'jquery'	: 'jquery/jquery-2.0.3'							//--JQuery
+			'jquery'	: 'jquery/jquery-2.0.3.min'						//--JQuery
 		},
 		base: '../',	//--TODO：配置根路径
 		vars: {			//--变量配置
@@ -103,7 +103,10 @@ define(function (require, exports, module) {
 			});
 		}catch(e){}
 	};
-
+	
+	//--引用全局JQuery-1.8.3
+    require('jquery/jquery-1.8.3.min');
+    
 	//example：seajs.use('../static/libs/main.js?1');
 	//判断是否自动load（说明：~-1=0）
 	if (!~module.id.indexOf('?1')) exports.load();

@@ -1,5 +1,5 @@
 define(function (require, exports, module) {
-    var $ = require('jquery');
+    //var $ = require('jquery');
     var v = require('model/version');
     var d = require('tools/convert/date');
     var m = require('common/baidu-map');
