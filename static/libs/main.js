@@ -35,31 +35,32 @@ define(function (require, exports, module) {
 		 * 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。
 		 */
 		paths: {	//--设置常用路径的别名
-			'common'	: 'static/js/common',				//--业务共通过模块
-			'model'		: 'static/js/model',				//--业务数据、功能模块
-			'page'		: 'static/js/pageController',		//--页面对应的模块
+			'common'		: 'static/js/common',				//--业务共通过模块
+			'model'			: 'static/js/model',				//--业务数据、功能模块
+			'page'			: 'static/js/pageController',		//--页面对应的模块
 
 			/* ---- 以下是和业务无关的库 ---- */
-			'libs'		: 'static/libs',					//--插件包
-			'tools'		: 'static/libs/tools',				//--工具库
+			'libs'			: 'static/libs',					//--插件包
+			'tools'			: 'static/libs/tools',				//--工具库
 			
 			/* ---- 第三方插件 ---- */
-			'jquery'	: 'static/libs/jquery',				//--JQuery库
-			'sweetalert': 'static/libs/sweetalert/dist',	//--SweetAlert
+			'jquery'		: 'static/libs/jquery',				//--JQuery库
+			'sweetalert'	: 'static/libs/sweetalert/dist',	//--SweetAlert
 			
-			'seajs'		: 'static/libs/seajs'				//--seajs原始库
+			'seajs'			: 'static/libs/seajs'				//--seajs原始库
 		},
 		alias: {	//--设置常用模块的别名
-			'base'		: 'common/base',								//--base信息
-			'ko'		: 'libs/knockoutjs/knockout-3.3.0',				//--knockout 动态数据
-			'console'	: 'tools/console/log',							//--console.log 日志输出
-			'ajax'		: 'tools/ajax/ajax',							//--javascript ajax
-			'alert'		: 'sweetalert/sweetalert.min',					//--sweetalert 弹出框
-			'superslide': 'libs/super-slide/jquery.SuperSlide.2.1.1',	//--superslide 选项卡、轮播
-			'lq'		: 'static/libs/lq-date/js/lq.datetimepick', 	//--lq-date 日历控件
-			'dateRange'	: 'static/libs/pickerDateRange/dateRange',		//--pickerDateRange 日期区间控件
+			'base'			: 'common/base',									//--base信息
+			'ko'			: 'libs/knockoutjs/knockout-3.3.0',					//--knockout 动态数据
+			'console'		: 'tools/console/log',								//--console.log 日志输出
+			'ajax'			: 'tools/ajax/ajax',								//--javascript ajax
+			'alert'			: 'sweetalert/sweetalert.min',						//--sweetalert 弹出框
+			'superslide'	: 'libs/super-slide/jquery.SuperSlide.2.1.1',		//--superslide 选项卡、轮播
+			'lq'			: 'static/libs/lq-date/js/lq.datetimepick',			//--lq-date 日历控件
+			'dateRange'		: 'static/libs/pickerDateRange/dateRange',			//--pickerDateRange 日期区间控件
 			
-			'jquery'	: 'jquery/jquery-2.0.3.min'						//--JQuery
+			'jquery'		: 'jquery/jquery-1.8.3.min',						//--JQuery.v1.8.3
+			'jquery-2.0.3'	: 'jquery/jquery-2.0.3.min'							//--JQuery.v2.0.3
 		},
 		base: '../',	//--TODO：配置根路径
 		vars: {			//--变量配置
@@ -91,6 +92,8 @@ define(function (require, exports, module) {
 	 * @param {URIString} basePath 基础路径，非必须参数
 	 */
 	exports.load = function(basePath) {
+	    require("./jquery/jquery-1.8.3.min");//--引用全局JQuery-1.8.3
+	    
 		if (basePath) {
 			seajs.config({
 				'base': basePath
@@ -98,14 +101,12 @@ define(function (require, exports, module) {
 		}
 
 		try{
+			
 			require.async(['page/' + getCurrentPage()], function(page) {
 				//--异步加载多个模块，在加载完成时，执行回调
 			});
 		}catch(e){}
 	};
-	
-	//--引用全局JQuery-1.8.3
-    require('jquery/jquery-1.8.3.min');
     
 	//example：seajs.use('../static/libs/main.js?1');
 	//判断是否自动load（说明：~-1=0）
