@@ -16,7 +16,9 @@
     <br />
     <div>knockoutjs 动态绑定数据</div>
     <ul id="koList" data-bind="foreach:datas">
-        <li data-bind="text:item"></li>
+        <li>
+        	<input type="text" name="text" id="text" value="2015-8-27"  data-bind="text:item"/>
+        </li>
     </ul>
 
     <!--使用seajs引入相关js文件-->

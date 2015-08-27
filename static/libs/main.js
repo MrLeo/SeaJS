@@ -109,6 +109,6 @@ define(function (require, exports, module) {
 	};
     
 	//example：seajs.use('../static/libs/main.js?1');
-	//判断是否自动load（说明：~-1=0）
+	//判断是否自动load（说明：~-1=0），参考：http://ask.dcloud.net.cn/question/3742
 	if (!~module.id.indexOf('?1')) exports.load();
 });
