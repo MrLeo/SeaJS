@@ -7,15 +7,15 @@ define(function (require, exports, module) {
     
     console.log("进入:", module.id);
 
-    var text = "这是通过seajs引用jQuery写入的。</br><hr></br>" + "版本号：" + v.version + "</br>" + "作者：" + v.powerBy + "</br>" + "简介：" + v.desc + "</br>";
-    $('#output').html(text);
-
+	var $output = $('#output');
+	$('.title',$output).html(v.desc+" - "+v.version);
+	$('.version-info dt',$output).html(v.powerBy);
+	$('.version-info dd',$output).html("这是通过seajs引用jQuery写入的。");
     $('#output').on('click', function () {
         swal("版本号：" + v.version + "\n" + "作者：" + v.powerBy + "\n" + "简介：" + v.desc);
     });
-
     setInterval(function () {
-        $('#date').html(d.DateFormat('' + (new Date()), 'yyyy-MM-dd hh:mm:ss'));
+        $('#nowDate').html(d.DateFormat('' + (new Date()), 'yyyy-MM-dd hh:mm:ss'));
     }, 1000);
 
     /*---- 获取地理位置坐标 Start ----*/
