@@ -17,7 +17,7 @@
     margin: 10px auto;
     font-family: "微软雅黑";    
     @include box-shadows(2px);
-    border: 1px solid #999;
+    border: 1px solid #eee;
     padding: 20px;
     .title{
         text-align: center;
@@ -49,14 +49,17 @@
     width: 600px;
     height: 400px;
     margin: 10px auto;
-    border: 1px solid #999;
+    border: 1px solid #eee;
     @include box-shadows(2px);
 }
 .ko{
-    margin: {
-        top:30px;
-        left:20px;
-        right:20px;
+    @include box-shadows(2px);
+    border:1px solid #eee;
+    width:600px;
+    margin:{
+        top:20px;
+        left: auto;
+        right: auto;
     };
     .ko-title{
         margin: {

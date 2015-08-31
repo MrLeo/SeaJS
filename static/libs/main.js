@@ -51,6 +51,7 @@ define(function (require, exports, module) {
 		},
 		alias: {	//--设置常用模块的别名
 			'base'			: 'common/base',									//--base信息
+			'react'			: 'libs/react/build/react',							//--react 用于构建用户界面的JAVASCRIPT库
 			'ko'			: 'libs/knockoutjs/knockout-3.3.0',					//--knockout 动态数据
 			'console'		: 'tools/console/log',								//--console.log 日志输出
 			'ajax'			: 'tools/ajax/ajax',								//--javascript ajax
@@ -76,6 +77,12 @@ define(function (require, exports, module) {
 		debug: true,			//--调试模式
 		charset: 'utf-8'		//--文件编码
 	});
+	
+	//--全局引用JQuery-1.8.3
+	require("./jquery/jquery-1.8.3.min");
+	
+	//--全局引用ReactJS
+	require("./react/build/react");
 
 	/*---- 获取当前页面名，不包含后缀".html" ----*/
 	function getCurrentPage() {
@@ -92,14 +99,11 @@ define(function (require, exports, module) {
 	 * @param {URIString} basePath 基础路径，非必须参数
 	 */
 	exports.load = function(basePath) {
-	    require("./jquery/jquery-1.8.3.min");//--引用全局JQuery-1.8.3
-	    
 		if (basePath) {
 			seajs.config({
 				'base': basePath
 			});
 		}
-
 		try{
 			
 			require.async(['page/' + getCurrentPage()], function(page) {
