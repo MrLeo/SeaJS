@@ -41,7 +41,12 @@ define(function (require, exports, module) {
 	 * @param {Object} date 日期字符串
 	 */
     exports.getTimestamp = function (date) {
-        return Date.parse(new Date(date));
+		if (!/^\d{4}[-|\/|年]\d{1,2}[-|\/|月]\d{1,2}日?\s\d{1,2}:\d{1,2}(:\d{1,2})?$/.test(dateStr)) {
+			return 0;
+		}
+		var dateStrArr = dateStr.replace(/[\/|年|月]/,'-').replace(/日/,"").split((/-|\:|\ /));
+		var date = new Date(dateStrArr[0], dateStrArr[1] - 1, dateStrArr[2], dateStrArr[3], dateStrArr[4], dateStrArr[5]);
+		return Date.parse(date);
     }
 
     /**

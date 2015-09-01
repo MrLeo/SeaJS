@@ -5,20 +5,25 @@
 # `目录结构`
 
 \SeaJS
-- | -- web：页面文件，如：index.html
-- | -- static：静态文件
-	- | -- css：样式文件
-	- | -- img：图片文件
-	- | -- js：业务相关的JS模块文件
-		- | -- **common**：业务相关的共通JS模块文件
-		- | -- **module**： 业务相关的data模块
-		- | -- **pageController**： 与web文件夹中的页面文件同名的模块，如：index.js
-	- |-- libs: 插件包
-		- | -- **main.js**： `页面调用seaJS入口,包含seajs的配置信息`
-		- | -- **lib**： `插件包`
-		- | -- **tools**： `与业务无关的工具包`
-		- | -- seajs： seaJS原始插件包
-		- | -- jquery： JQuery插件包
+- | -- **README.md** ：框架结构说明
+- | -- web ： 页面文件，如：index.html
+- | -- static ：静态文件
+	- | -- css ：样式文件
+	- | -- img ：图片文件
+	- | -- js ：业务相关的JS模块文件
+		- | -- **common** ：业务相关的共通JS模块文件
+		- | -- **model** ： 业务相关的data模块
+		- | -- **pageController** ： 与web文件夹中的页面文件同名的模块，如：index.js
+		- | -- react ：通过jsx生成的React组件
+	- | -- jsx ：React组件库
+		- | -- **README.md** ： React 和 jsx 的相关说明
+		- | -- **JSXTransformer.bat** ：转换jsx的CMD命令
+	- | -- libs : 插件包
+		- | -- **main.js** ： `页面调用seaJS入口,包含seajs的配置信息`
+		- | -- **lib** ： `插件包`
+		- | -- **tools** ： `与业务无关的工具包`
+		- | -- seajs ： seaJS原始插件包
+		- | -- jquery ： JQuery插件包
 		- | -- ...
 
 ***
@@ -60,6 +65,8 @@
  * @throw {TypeError} 参数类型不匹配 (异常信息)
  */
 ```
+
+***
 
 # seajs.config
 
