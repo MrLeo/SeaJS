@@ -49,7 +49,8 @@ define(function(require, exports, module) {
 	/******************************************************************
 	 * demo4 
 	 * 调用组件，读取组件模版属性（props）
-	 * 组件名首字母要大写
+	 * 首字母大些：组件
+	 * 首字母小写：原生HTML
 	 * this.props 表示那些一旦定义，就不再改变的特性
 	 */
 	var Demo4 = React.createClass({
