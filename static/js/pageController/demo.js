@@ -63,7 +63,6 @@ define(function (require, exports, module) {
 
     swal("版本号：" + v.version + "\n" + "作者：" + v.powerBy + "\n" + "简介：" + v.desc);
 
-
     require("ko");
     var model = {
         datas: ko.observableArray([
