@@ -52,8 +52,9 @@ define(function (require, exports, module) {
 		},
 		alias: {	//--设置常用模块的别名
 			'base'			: 'common/base',									//--base信息
-			'react'			: 'libs/react/build/react',							//--react 用于构建用户界面的JAVASCRIPT库
-			'ko'			: 'libs/knockoutjs/knockout-3.3.0',					//--knockout 动态数据
+			'vue'			: 'libs/vue/vue',									//--Vue.js MVVM风格双向数据绑定库
+			'react'			: 'libs/react/build/react',							//--React.js 用于构建用户界面的JAVASCRIPT库
+			'ko'			: 'libs/knockoutjs/knockout-3.3.0',					//--Knockout 动态数据
 			'console'		: 'tools/console/log',								//--console.log 日志输出
 			'ajax'			: 'tools/ajax/ajax',								//--javascript ajax
 			'sweetalert'	: 'sweetalert/sweetalert.min',						//--sweetalert 弹出框
@@ -79,13 +80,16 @@ define(function (require, exports, module) {
 		charset: 'utf-8'		//--文件编码
 	});
 	
-	//--全局引用JQuery-1.8.3
-	require("./jquery/jquery-1.8.3.min");
-	
-	//--全局引用ReactJS
-	require("./react/build/react");
+	/**
+	 * 全局引用
+	 */
+	require("./jquery/jquery-1.8.3.min");//--全局引用JQuery-1.8.3
+	require("./react/build/react.min");//--全局引用ReactJS
+	require("./vue/vue.min");//--全局引用Vue.js
 
-	/*---- 获取当前页面名，不包含后缀".html" ----*/
+	/**
+	 * 获取当前页面名，不包含后缀".html"
+	 */
 	function getCurrentPage() {
 		var urls = location.href.split("/");
 		var page = urls[urls.length - 1];

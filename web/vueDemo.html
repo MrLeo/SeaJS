@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" href="../static/css/reset.css" />
+		<style>
+			body{
+				text-align: center;
+				margin-top: 60px;
+				font-size: 40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="v-model">
+			1.message:&nbsp;&nbsp;&nbsp;<span>{{message}}</span><br />
+			2.v-text:&nbsp;&nbsp;&nbsp;<span v-text="message" ></span><br />
+			<input type="text" v-model="message" v-on="keyup : keyupHandler(message) | key 13"/><br />
+			<ul>
+				<!--<li v-repeat="item in items"  >{{$index+1}}: 姓名：{{item.name}},年龄 ： {{item.age}}</li>-->
+				<li v-repeat="item in items"  data-id="{{item.id}}" v-text="($index+1)+':' + '姓名:' + item.name + ',年龄：' + item.age"></li>
+			</ul>
+			<input type="button" value="点我" v-on="click : clickHandler($event),keyup : keyupHandler() | key 13"/>
+			
+		</div>
+		<script src="../static/libs/seajs/sea.js" type="text/javascript" charset="utf-8"></script>
+	    <script type="text/javascript">
+	        //自动加载对应页面的js
+	        seajs.use('../static/libs/main');
+	    </script>
+	</body>
+</html>
