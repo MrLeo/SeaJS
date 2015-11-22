@@ -11,28 +11,29 @@ seajs.config({
 	 * 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。
 	 */
 	paths: {	//--设置常用路径的别名
-		'common'		: 'static/js/common',				//--业务共通过模块
+		'base'			: 'static/js/base',					//--业务共通过模块
 		'model'			: 'static/js/model',				//--业务数据、功能模块
-		'page'			: 'static/js/pageController',		//--页面对应的模块
+		'page'			: 'static/js/controller',			//--页面对应的模块
 		'react'			: 'static/js/react',				//--react模块文件
 
 		/* ---- 以下是和业务无关的库 ---- */
+		'common'		: 'static/common',					//--工具库
 		'libs'			: 'static/libs',					//--插件包
-		'tools'			: 'static/libs/tools',				//--工具库
 		
 		/* ---- 第三方插件 ---- */
 		'jquery'		: 'static/libs/jquery',				//--JQuery库
 		'sweetalert'	: 'static/libs/sweetalert/dist',	//--SweetAlert
 		
+		/* ---- seajs ---- */
 		'seajs'			: 'static/libs/seajs'				//--seajs原始库
 	},
 	alias: {	//--设置常用模块的别名
-		'base'			: 'common/base',									//--base信息
+		'base'			: 'base/base',										//--base信息
 		'vue'			: 'libs/vue/vue',									//--Vue.js MVVM风格双向数据绑定库
 		'react'			: 'libs/react/build/react',							//--React.js 用于构建用户界面的JAVASCRIPT库
 		'ko'			: 'libs/knockoutjs/knockout-3.3.0',					//--Knockout 动态数据
-		'console'		: 'tools/console/log',								//--console.log 日志输出
-		'ajax'			: 'tools/ajax/ajax',								//--javascript ajax
+		'console'		: 'common/console/log',								//--console.log 日志输出
+		'ajax'			: 'common/ajax/ajax',								//--javascript ajax
 		'sweetalert'	: 'sweetalert/sweetalert.min',						//--sweetalert 弹出框
 		'superslide'	: 'libs/super-slide/jquery.SuperSlide.2.1.1',		//--superslide 选项卡、轮播
 		'lq'			: 'static/libs/lq-date/js/lq.datetimepick',			//--lq-date 日历控件

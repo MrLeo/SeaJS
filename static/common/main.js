@@ -22,14 +22,17 @@
  *        源码地址：https://github.com/MrLeo/SeaJS
  */
 define(function (require, exports, module) {
+	/**
+	 * ---- 引入配置文件 ----
+	 */
 	require('./config');
 	
 	/**
-	 * 全局引用
+	 * ---- 全局引用 ----
 	 */
-	require("./jquery/jquery-1.8.3.min");//--全局引用JQuery-1.8.3
-	require("./react/build/react.min");//--全局引用ReactJS
-	require("./vue/vue.min");//--全局引用Vue.js
+	require("../libs/jquery/jquery-1.8.3.min");//--全局引用JQuery-1.8.3
+	require("../libs/react/build/react.min");//--全局引用ReactJS
+	require("../libs/vue/vue.min");//--全局引用Vue.js
 
 	/**
 	 * 获取当前页面名，不包含后缀".html"
@@ -43,7 +46,7 @@ define(function (require, exports, module) {
 	}
 
 	/**
-	 * ---- 加载页面对应的js ----
+	 * ---- 分发模块 ----
 	 * js文件名要和对应页面的文件名相同
 	 * @param {URIString} basePath 基础路径，非必须参数
 	 */
@@ -63,5 +66,7 @@ define(function (require, exports, module) {
     
 	//example：seajs.use('../static/libs/main.js?1');
 	//判断是否自动load（说明：~-1=0），参考：http://ask.dcloud.net.cn/question/3742
-	if (!~module.id.indexOf('?1')) exports.load();
+	if (!~module.id.indexOf('?1')){
+		exports.load();
+	}
 });
