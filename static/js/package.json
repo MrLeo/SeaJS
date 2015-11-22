@@ -1,0 +1,25 @@
+{
+  "family": "SeaJS",
+  "name": "pageController",
+  "version": "1.0.0",
+
+  "spm": {
+    "alias": {
+      "jquery": "jquery",
+      "jquery-2.0.3":"jquery-2.0.3",
+      "base":"base",
+      "vue":"vue",
+      "react":"react",
+      "ko":"ko",
+      "console":"console",
+      "ajax":"ajax",
+      "sweetalert":"sweetalert",
+      "superslide":"superslide",
+      "lq":"lq",
+      "dateRange":"dateRange"
+    },
+    "output": [
+    	"pageController/demo.js"
+		]
+  }
+}
