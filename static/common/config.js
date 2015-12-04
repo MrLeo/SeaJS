@@ -1,9 +1,9 @@
-/*---- seajs配置信息,更多配置信息参照：https://github.com/seajs/seajs/issues/262 ----*/
+/*---- seajs配置信息,更多配置信息参照：https://github.com/seamodule/seamodule/issues/262 ----*/
 seajs.config({
 	/* ---- 请根据Web服务(IIS/Apache...)和项目结构调整base的路径 ---- */
 	/**
 	 * 模块标识：
-	 * 		https://github.com/seajs/seajs/issues/258
+	 * 		https://github.com/seamodule/seamodule/issues/258
 	 * 		http://segmentfault.com/a/1190000000354302
 	 * 		(1) 相对路径		："../libs",
 	 * 		(2) 顶级标识		："path/to/libs",
@@ -11,10 +11,10 @@ seajs.config({
 	 * 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。
 	 */
 	paths: {	//--设置常用路径的别名
-		'base'			: 'static/js/base',					//--业务共通过模块
-		'model'			: 'static/js/model',				//--业务数据、功能模块
-		'page'			: 'static/js/controller',			//--页面对应的模块
-		'react'			: 'static/js/react',				//--react模块文件
+		'base'			: 'static/module/base',					//--业务共通过模块
+		'model'			: 'static/module/model',				//--业务数据、功能模块
+		'page'			: 'static/module/controller',			//--页面对应的模块
+		'react'			: 'static/module/react',				//--react模块文件
 
 		/* ---- 以下是和业务无关的库 ---- */
 		'common'		: 'static/common',					//--工具库
