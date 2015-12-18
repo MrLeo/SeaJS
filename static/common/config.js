@@ -22,6 +22,7 @@ seajs.config({
 		
 		/* ---- 第三方插件 ---- */
 		'jquery'		: 'static/libs/jquery',				//--JQuery库
+		'zepto'			: 'static/libs/zepto',				//--zepto库
 		'sweetalert'	: 'static/libs/sweetalert/dist',	//--SweetAlert
 		
 		/* ---- seajs ---- */

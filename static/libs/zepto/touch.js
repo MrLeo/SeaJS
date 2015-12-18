@@ -1,7 +1,8 @@
 //     Zepto.js
 //     (c) 2010-2015 Thomas Fuchs
 //     Zepto.js may be freely distributed under the MIT license.
-
+define(function(require, exports, module) {
+	require("./zepto");
 ;(function($){
   var touch = {},
     touchTimeout, tapTimeout, swipeTimeout, longTapTimeout,
@@ -163,3 +164,4 @@
     $.fn[eventName] = function(callback){ return this.on(eventName, callback) }
   })
 })(Zepto)
+});

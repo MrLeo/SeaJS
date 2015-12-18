@@ -30,6 +30,11 @@ define(function (require, exports, module) {
 	/**
 	 * ---- 全局引用 ----
 	 */
+	/*require("../libs/zepto/zepto");//--全局引用zepto主文件
+	require("../libs/zepto/event");//--全局引用zepto.event主文件
+	require("../libs/zepto/ajax");//--全局引用zepto.ajax主文件
+	require("../libs/zepto/fx");//--全局引用zepto.fx主文件*/
+	
 	require("../libs/jquery/jquery-1.8.3.min");//--全局引用JQuery-1.8.3
 	require("../libs/react/build/react.min");//--全局引用ReactJS
 	require("../libs/vue/vue.min");//--全局引用Vue.js
