@@ -1,0 +1,97 @@
+define(function(require, exports, module) {
+	/**
+	 * 数组去重 
+	 * http://mp.weixin.qq.com/s?__biz=MzA4NDIzNzMwMw==&mid=402396591&idx=1&sn=0c05fa18784bd9eef1ee8a78fbff4e20&scene=1&srcid=0104sExsWNOZbAhbV2DyN7zO#wechat_redirect
+	 */
+
+	/**
+	 * 利用数组的indexOf方法 
+	 * @param {Object} arr
+	 */
+	function unique(arr) {
+		var result = [];
+		for (var i = 0; i < arr.length; i++) {
+			if (result.indexOf(arr[i]) == -1) result.push(arr[i]);
+		}
+		return result;
+	}
+
+
+	/**
+	 * 利用hash表,可能会出现字符串和数字一样的话出错，如var a = [1, 2, 3, 4, '3', 5],会返回[1, 2, 3, 4, 5] 
+	 * @param {Object} arr
+	 */
+	function unique2(arr) {
+		var hash = {},
+			result = [];
+		for (var i = 0; i < arr.length; i++) {
+			if (!hash[arr[i]]) {
+				hash[arr[i]] = true;
+				result.push(arr[i]);
+			}
+		}
+		return result;
+	}
+
+
+	/**
+	 * 排序后比较相邻，如果一样则放弃，否则加入到result。会出现与方法2一样的问题，如果数组中存在1,1,'1'这样的情况，则会排错 
+	 * @param {Object} arr
+	 */
+	function unique3(arr) {
+		arr.sort();
+		var result = [arr[0]];
+		for (var i = 1; i < arr.length; i++) {
+			if (arr[i] !== arr[i - 1]) {
+				result.push(arr[i]);
+			}
+		}
+		return result;
+	}
+
+
+	/**
+	 * 最简单但是效率最低的算法,也不会出现方法2和方法3出现的bug 
+	 * @param {Object} arr
+	 */
+	function unique4(arr) {
+		if (arr.length == 0) return;
+		var result = [arr[0]],
+			isRepeate;
+		for (var i = 0, j = arr.length; i < j; i++) {
+			isRepeate = false;
+			for (var k = 0, h = result.length; k < h; k++) {
+				if (result[k] === arr[i]) {
+					isRepeate = true;
+					break;
+				}
+				if (k == h) break;
+			}
+			if (!isRepeate) result.push(arr[i]);
+		}
+		return result;
+	}
+
+
+	/**
+	 * 此方法充分利用了递归和indexOf方法 
+	 * @param {Object} arr
+	 * @param {Object} newArr
+	 */
+	var unique5 = function(arr, newArr) {
+		var num;
+
+		if (-1 == arr.indexOf(num = arr.shift())) newArr.push(num);
+
+		arr.length && unique(arr, newArr);
+	}
+
+	module.exports = {
+		'unique': unique,
+		'unique2': unique2,
+		'unique3': unique3,
+		'unique4': unique4,
+		'unique5': unique5
+	}
+
+});
