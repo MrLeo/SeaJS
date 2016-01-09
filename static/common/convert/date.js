@@ -8,6 +8,7 @@ define(function (require, exports, module) {
 	 * @return {DateString} fmt 转换后的日期
 	 */
     exports.DateFormat = function (date, fmt) {
+    	date = date.replace(/-/g,'/');
         var d = new Date(date);
         var o = {
             "M+": d.getMonth() + 1, //月份

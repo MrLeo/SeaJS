@@ -7,23 +7,24 @@
 \SeaJS
 - | -- **README.md** ：框架结构说明
 - | -- web ： 页面文件，如：index.html
-- | -- static ：静态文件
-	- | -- css ：样式文件
+- | -- static ：静态资源文件
+	- | -- css ：CSS样式文件
+	- | -- sass：SCSS预编译文件
 	- | -- img ：图片文件
-	- | -- js ：业务相关的JS模块文件
-		- | -- **common** ：业务相关的共通JS模块文件
+	- | -- common ：通用工具模块
+	- | -- module ：业务相关的JS模块文件
+		- | -- **base** ：业务相关的共通JS模块文件
 		- | -- **model** ： 业务相关的data模块
-		- | -- **pageController** ： 与web文件夹中的页面文件同名的模块，如：index.js
+		- | -- **controller** ： 与web文件夹中的页面文件同名的模块，如：index.js
 		- | -- react ：通过jsx生成的React组件
+	- | -- js ：非CMD规范的JS文件
 	- | -- jsx ：React组件库
 		- | -- **README.md** ： React 和 jsx 的相关说明
 		- | -- **JSXTransformer.bat** ：转换jsx的CMD命令
 	- | -- libs : 插件包
 		- | -- **main.js** ： `页面调用seaJS入口,包含seajs的配置信息`
 		- | -- **lib** ： `插件包`
-		- | -- **tools** ： `与业务无关的工具包`
 		- | -- seajs ： seaJS原始插件包
-		- | -- jquery ： JQuery插件包
 		- | -- ...
 
 ***
@@ -77,34 +78,39 @@ seajs.config({
 	/* ---- 请根据Web服务(IIS/Apache...)和项目结构调整base的路径 ---- */
 	/**
 	 * 模块标识：
-	 * 		https://github.com/seajs/seajs/issues/258
+	 * 		https://github.com/seamodule/seamodule/issues/258
 	 * 		http://segmentfault.com/a/1190000000354302
 	 * 		(1) 相对路径		："../libs",
 	 * 		(2) 顶级标识		："path/to/libs",
-	 * 		(3) 根  路  径		："/libs"
+	 * 		(3) 根路径		："/libs"
 	 * 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。
 	 */
 	paths: {	//--设置常用路径的别名
-		'common'		: 'static/js/common',				//--业务共通过模块
-		'model'			: 'static/js/model',				//--业务数据、功能模块
-		'page'			: 'static/js/pageController',		//--页面对应的模块
+		'base'			: 'static/module/base',					//--业务共通过模块
+		'model'			: 'static/module/model',				//--业务数据、功能模块
+		'page'			: 'static/module/controller',			//--页面对应的模块
+		'react'			: 'static/module/react',				//--react模块文件
 
 		/* ---- 以下是和业务无关的库 ---- */
+		'common'		: 'static/common',					//--工具库
 		'libs'			: 'static/libs',					//--插件包
-		'tools'			: 'static/libs/tools',				//--工具库
 		
 		/* ---- 第三方插件 ---- */
 		'jquery'		: 'static/libs/jquery',				//--JQuery库
+		'zepto'			: 'static/libs/zepto',				//--zepto库
 		'sweetalert'	: 'static/libs/sweetalert/dist',	//--SweetAlert
 		
+		/* ---- seajs ---- */
 		'seajs'			: 'static/libs/seajs'				//--seajs原始库
 	},
 	alias: {	//--设置常用模块的别名
-		'base'			: 'common/base',									//--base信息
-		'ko'			: 'libs/knockoutjs/knockout-3.3.0',					//--knockout 动态数据
-		'console'		: 'tools/console/log',								//--console.log 日志输出
-		'ajax'			: 'tools/ajax/ajax',								//--javascript ajax
-		'alert'			: 'sweetalert/sweetalert.min',						//--sweetalert 弹出框
+		'base'			: 'base/base',										//--base信息
+		'vue'			: 'libs/vue/vue',									//--Vue.js MVVM风格双向数据绑定库
+		'react'			: 'libs/react/build/react',							//--React.js 用于构建用户界面的JAVASCRIPT库
+		'ko'			: 'libs/knockoutjs/knockout-3.3.0',					//--Knockout 动态数据
+		'console'		: 'common/console/log',								//--console.log 日志输出
+		'ajax'			: 'common/ajax/ajax',								//--javascript ajax
+		'sweetalert'	: 'sweetalert/sweetalert.min',						//--sweetalert 弹出框
 		'superslide'	: 'libs/super-slide/jquery.SuperSlide.2.1.1',		//--superslide 选项卡、轮播
 		'lq'			: 'static/libs/lq-date/js/lq.datetimepick',			//--lq-date 日历控件
 		'dateRange'		: 'static/libs/pickerDateRange/dateRange',			//--pickerDateRange 日期区间控件

@@ -5,7 +5,7 @@ define(function(require, exports, module) {
 	
 	var $ = require('../../jquery/jquery-2.0.3.min');
 	var LQ = {};
-	LQ.selectUi = require('./selectUi');
+	LQ.selectUi = require('./select-ui');
 	
 	var lq_datetimepick = false;
 	$.fn.lqdatetimepicker = function(options) {

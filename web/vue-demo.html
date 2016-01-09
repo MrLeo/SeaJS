@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>vue.js Demo</title>
+		<link rel="stylesheet" type="text/css" href="../static/sass/main.scss" />
+		<style type="text/css">
+			html,
+			body,
+			#editor {
+				margin: 0;
+				height: 200px;
+				font-family: 'Helvetica Neue', Arial, sans-serif;
+				color: #333;
+			}
+			
+			textarea,
+			#editor div {
+				display: inline-block;
+				width: 49%;
+				height: 100%;
+				vertical-align: top;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+				padding: 0 20px;
+			}
+			
+			textarea {
+				border: none;
+				border-right: 1px solid #ccc;
+				resize: none;
+				outline: none;
+				background-color: #f6f6f6;
+				font-size: 14px;
+				font-family: 'Monaco', courier, monospace;
+				padding: 20px;
+			}
+			
+			code {
+				color: #f66;
+			}
+			
+			.item {
+				cursor: pointer;
+			}
+			
+			.bold {
+				font-weight: bold;
+			}
+			
+			ul {
+				padding-left: 1em;
+				line-height: 1.5em;
+				list-style-type: dot;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="editor">
+			<textarea v-model="input" debounce="300"></textarea>
+			<div v-html="input | marked"></div>
+		</div>
+
+		<!-- item template -->
+		<script type="text/x-template" id="item-template">
+			<li>
+				<div :class="{bold: isFolder}" @click="toggle" @dblclick="changeType">
+					{{model.name}}
+					<span v-if="isFolder">[{{open ? '-' : '+'}}]</span>
+				</div>
+				<ul v-show="open" v-if="isFolder">
+					<item class="item" v-for="model in model.children" :model="model">
+					</item>
+					<li @click="addChild">+</li>
+				</ul>
+			</li>
+		</script>
+		<p>(You can double click on an item to turn it into a folder.)</p>
+		<!-- the demo root element -->
+		<ul id="demo">
+			<item class="item" :model="treeData">
+			</item>
+		</ul>
+
+		<script src="../static/libs/seajs/sea.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//自动加载对应页面的js
+			seajs.use('../static/common/main');
+		</script>
+	</body>
+
+</html>
