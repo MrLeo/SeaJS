@@ -1,0 +1,2 @@
+/*! Leo  @  11-01-2016 */
+define("static/common-dist/convert/trim",[],function(a,b,c){b.end=function(a,b){var c=new RegExp(b+"$");return(a+"").replace(c,"")},b.start=function(a,b){var c=new RegExp("^"+b);return(a+"").replace(c,"")},b.start=function(a,b){var c=new RegExp(b);return(a+"").replace(c,"")}});

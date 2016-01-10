@@ -1,0 +1,2 @@
+/*! Leo  @  11-01-2016 */
+define("static/common-dist/main/uri",[],function(a,b,c){c.exports={getQueryString:function(a){var b=new RegExp("(^|&)"+a+"=([^&]*)(&|$)","i"),c=window.location.search.substr(1).match(b);return null!=c?unescape(c[2]):null}}});
