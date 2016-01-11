@@ -1,2 +1,0 @@
-/*! Leo  @  11-01-2016 */
-define("static/common-dist/ajax/ajax",[],function(a,b,c){function d(a,b,c,d){var e;e=window.XMLHttpRequest?new XMLHttpRequest:ActiveXObject("Microsoft.XMLHTTP"),e.open(b,a,!0),e.send(),e.onreadystatechange=function(){4==e.readyState&&(200==e.status?c(e.responseText):d(e.status))}}c.exports=d});

@@ -10,31 +10,28 @@ seajs.config({
 	 * 		(3) 根路径		："/libs"
 	 * 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。
 	 */
-	base: '../', //--TODO：配置根路径
+	base: '../static/', //--TODO：配置根路径
 	paths: { //--设置常用路径的别名
-		'base': 'static/module/base', //--业务共通过模块
-		'page': 'static/module/page', //--页面对应的模块入口
-		'react': 'static/module/react', //--react模块文件
-
 		/* ---- 以下是和业务无关的库 ---- */
-		'common': 'static/common', //--工具库
-		'libs': 'static/libs', //--插件包
+		//'common': 'common', //--工具库
+		//'libs': 'libs', //--插件包
 	},
 	alias: { //--设置常用模块的别名
-		'base': 'base/base', //--base信息
-		'vue': 'libs/vue/vue', //--Vue.js MVVM风格双向数据绑定库
-		'react': 'libs/react/build/react', //--React.js 用于构建用户界面的JAVASCRIPT库
-		'ko': 'libs/knockoutjs/knockout-3.3.0', //--Knockout 动态数据
+		'base': 'module/base/base', //--base信息
 		'console': 'common/main/console', //--console.log 日志输出
 		'ajax': 'common/ajax/ajax', //--javascript ajax
-		'sweetalert': 'static/libs/sweetalert/dist/sweetalert.min', //--sweetalert 弹出框
+		'sweetalert': 'libs/sweetalert/dist/sweetalert.min', //--sweetalert 弹出框
 		'superslide': 'libs/super-slide/jquery.SuperSlide.2.1.1', //--superslide 选项卡、轮播
-		'lq': 'static/libs/lq-date/js/lq.datetimepick', //--lq-date 日历控件
-		'dateRange': 'static/libs/pickerDateRange/dateRange', //--pickerDateRange 日期区间控件
-
-		'zepto': 'static/libs/zepto', //--zepto库
-		'jquery': 'static/libs/jquery/jquery-1.8.3.min', //--JQuery.v1.8.3
-		'jquery-2.0.3': 'static/libs/jquery/jquery-2.0.3.min' //--JQuery.v2.0.3
+		'lq': 'libs/lq-date/js/lq.datetimepick', //--lq-date 日历控件
+		'dateRange': 'libs/pickerDateRange/dateRange', //--pickerDateRange 日期区间控件
+		/* ---- 常用的第三方库  ---- */
+		'react': 'libs/react/build/react', //--React.js 用于构建用户界面的JAVASCRIPT库
+		'vue': 'libs/vue/vue', //--Vue.js MVVM风格双向数据绑定库
+		'ko': 'libs/knockoutjs/knockout-3.3.0', //--Knockout 动态数据
+		'underscore': 'libs/underscore/underscore-min', //underscore工具库,http://www.bootcss.com/p/underscore/
+		'zepto': 'libs/zepto/zepto', //--zepto库,http://www.css88.com/doc/zeptojs_api/
+		'jquery': 'libs/jquery/jquery-1.8.3.min', //--JQuery.v1.8.3,http://hemin.cn/jq/
+		'jquery-2.0.3': 'libs/jquery/jquery-2.0.3.min' //--JQuery.v2.0.3
 	},
 	vars: { //--变量配置
 		'locale': 'zh-cn'

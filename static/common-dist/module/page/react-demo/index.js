@@ -1,2 +1,0 @@
-/*! Leo  @  11-01-2016 */
-define("static/module/page/react-demo-dist/index",["react/test-react"],function(a,b,c){a("react/test-react")}),define("static/module/page/react-demo-dist/static/module/page/react-demo-dist/index.min-debug",["react/test-react-debug"],function(a,b,c){a("react/test-react")}),define("static/module/page/react-demo-dist/static/module/page/react-demo-dist/index.min",["react/test-react"],function(a,b,c){a("react/test-react")});

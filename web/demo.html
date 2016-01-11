@@ -36,14 +36,13 @@
     <script src="http://api.map.baidu.com/api?type=quick&ak=2Ap4Umr8RMI4RwvdvyweEptB&v=1.0" type="text/javascript" charset="utf-8"></script>
     <!--使用seajs引入相关js文件-->
     <script src="../static/libs/seajs/sea.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../static/module/config.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../static/config.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
         //自动加载对应页面的js
-        seajs.use('../static/module/main');
-        //seajs.use('/SeaJS/static/dist/module/controller/demo');
+        seajs.use('../static/main');
         //手动加载对应页面的js
-        /*seajs.use('../static/libs/main.js?1',function(main){
-            main.load('/SeaJS/static/js');//加载公开接口方法，参数可不传，并重新设置base路径
+        /*seajs.use('../static/main.js?1',function(main){
+            main.load();//加载公开接口方法，参数可不传，并重新设置base路径
         });*/
     </script>
 </body>

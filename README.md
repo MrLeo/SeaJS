@@ -14,8 +14,7 @@
 	- | -- common ：通用工具模块
 	- | -- module ：业务相关的JS模块文件
 		- | -- **base** ：业务相关的共通JS模块文件
-		- | -- **model** ： 业务相关的data模块
-		- | -- **controller** ： 与web文件夹中的页面文件同名的模块，如：index.js
+		- | -- **page** ： 与web文件夹中的页面文件同名的模块，如：demo/index.js
 		- | -- react ：通过jsx生成的React组件
 	- | -- js ：非CMD规范的JS文件
 	- | -- jsx ：React组件库

@@ -30,9 +30,10 @@ define(function(require, exports, module) {
 	require("../libs/zepto/ajax");//--全局引用zepto.ajax主文件
 	require("../libs/zepto/fx");//--全局引用zepto.fx主文件*/
 
-	require("libs/jquery/jquery-1.8.3.min"); //--全局引用JQuery-1.8.3
-	require("libs/react/build/react.min"); //--全局引用ReactJS
-	require("libs/vue/vue.min"); //--全局引用Vue.js
+	require("jquery"); //--全局引用JQuery-1.8.3
+	require("react"); //--全局引用ReactJS
+	require("vue"); //--全局引用Vue.js
+	require('underscore');//--全局引用Underscore工具库
 
 	/**
 	 * 获取当前页面名，不包含后缀".html"
@@ -48,17 +49,10 @@ define(function(require, exports, module) {
 	/**
 	 * ---- 分发模块 ----
 	 * js文件名要和对应页面的文件名相同
-	 * @param {URIString} basePath 基础路径，非必须参数
 	 */
-	exports.load = function(basePath) {
-		if (basePath) {
-			seajs.config({
-				'base': basePath
-			});
-		}
-		var requireModuleID = 'page/' + getCurrentPage() + '/index';
+	exports.load = function() {
 		try {
-			require.async([requireModuleID], function(page) {
+			require.async(['module/' + getCurrentPage() + '/index'], function(page) {
 				//--异步加载多个模块，在加载完成时，执行回调
 			});
 		} catch (e) {}

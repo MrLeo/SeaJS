@@ -6,74 +6,89 @@ http://www.cnblogs.com/hongchenok/p/3924633.html
 http://www.jackness.org/2015/01/02/grunt-实例之-构建-seajs-项目/
 
 将命令行的当前目录转到项目的根目录下
+cd /d F:\WWW\SeaJS\static\
+
 安装Grunt 和 grunt插件
 npm install grunt --save-dev
 npm install grunt-cmd-transport --save-dev
 npm install grunt-cmd-concat --save-dev
 npm install grunt-contrib-uglify --save-dev
-npm install grunt-cmd-clean --save-dev
+npm install grunt-contrib-clean --save-dev
 */
 module.exports = function(grunt) {
-	var transport = require('grunt-cmd-transport');
+    require('time-grunt')(grunt);//Time how long tasks take
+    //require('load-grunt-tasks')(grunt);//Load grunt tasks automatically
+    
 	grunt.initConfig({
 		pkg: grunt.file.readJSON("package.json"),
-		name: '/<%= pkg.name %>',
 		/**
 		 * step 1:
 		 * 创建一个临时目录
 		 * 将需要合并的js文件转为具名函数，并保持独立地保存在这个临时目录
 		 */
-		transport: {
+		transport: {//task任务
 			options: {
 				paths: ['.'], //模块的路径，默认的是sea-modules
 				alias: '<%= pkg.spm.alias %>' //模板语法来从package.json引入模块别名
 			},
-			common: {
+			common: {//target
 				options: {
-					idleading: 'static/common-dist/', //模块ID的前缀
+					idleading: 'common-dist/', //构建后的模块ID的前缀
 				},
 				files: [{
 					expand: true, //开启处理动态的src-dest文件映射
 					filter: 'isFile', //匹配过滤src文件路径
 					cwd: 'common', //所有src指定的匹配都将相对于此处指定的路径（但不包括此路径）
-					src: '**/*.js', //相对于cwd路径的匹配模式
-					dest: '.build/' //目标文件路径前缀
+					src: '**/*.js', //相对于cwd路径的匹配模式(**代表当前路径以及子路径)
+					dest: '.build/common' //目标文件路径前缀
+				}]
+			},
+			base: {
+				options: {
+					idleading: 'module/base-dist/',
+				},
+				files: [{
+					expand: true,
+					filter: 'isFile',
+					cwd: 'module/base',
+					src: '**/*.js',
+					dest: '.build/module/base'
 				}]
 			},
 			demo: {
 				options: {
-					idleading: 'static/module/page/demo-dist/', //模块ID的前缀
+					idleading: 'module/page-dist/demo/',
 				},
 				files: [{
-					expand: true, //开启处理动态的src-dest文件映射
-					filter: 'isFile', //匹配过滤src文件路径
-					cwd: 'module/page/demo', //所有src指定的匹配都将相对于此处指定的路径（但不包括此路径）
-					src: '**/*.js', //相对于cwd路径的匹配模式
-					dest: '.build/module/page/demo' //目标文件路径前缀
+					expand: true,
+					filter: 'isFile',
+					cwd: 'module/page/demo',
+					src: '**/*.js',
+					dest: '.build/module/page/demo'
 				}]
 			},
 			"react-demo": {
 				options: {
-					idleading: 'static/module/page/react-demo-dist/', //模块ID的前缀
+					idleading: 'module/page-dist/react-demo/',
 				},
 				files: [{
-					expand: true, //开启处理动态的src-dest文件映射					
-					filter: 'isFile', //匹配过滤src文件路径
-					cwd: 'module/page/react-demo', //所有src指定的匹配都将相对于此处指定的路径（但不包括此路径）
-					src: '**/*.js', //相对于cwd路径的匹配模式
-					dest: '.build/module/page/react-demo' //目标文件路径前缀
+					expand: true,				
+					filter: 'isFile',
+					cwd: 'module/page/react-demo',
+					src: '**/*.js',
+					dest: '.build/module/page/react-demo'
 				}]
 			},
 			"vue-demo": {
 				options: {
-					idleading: 'static/module/page/react-demo-dist/', //模块ID的前缀
+					idleading: 'module/page-dist/react-demo/',
 				},
 				files: [{
-					expand: true, //开启处理动态的src-dest文件映射
-					filter: 'isFile', //匹配过滤src文件路径
-					cwd: 'module/page/vue-demo', //所有src指定的匹配都将相对于此处指定的路径（但不包括此路径）
-					src: '**/*.js', //相对于cwd路径的匹配模式
-					dest: '.build/module/page/vue-demo' //目标文件路径前缀
+					expand: true,
+					filter: 'isFile',
+					cwd: 'module/page/vue-demo',
+					src: '**/*.js',
+					dest: '.build/module/page/vue-demo'
 				}]
 			}
 		},
@@ -84,23 +99,28 @@ module.exports = function(grunt) {
 		 */
 		concat: {
 			options: {
-				//separator: ';', // 定义一个用于插入合并输出文件之间的字符
-				include: 'relative' //relative是合并采用相对路径依赖的模块；all是将所有依赖全都合并成一个文件
+				separator: ';', // 定义一个用于插入合并输出文件之间的字符
+				include: 'relative' //relative（默认）只会合并相对标识的依赖；；all会合并所有依赖
 			},
 			common: {
 				files: [{
 					expand: true,
 					ext: '.js',
-					cwd: '.build/',
+					cwd: '.build/common/',
 					src: ['**/*.js'],
 					dest: 'common-dist/'
 				}]
 			},
 			demo: {
 				files: {
-					'module/page/demo-dist/index.js': ['.build/module/page/demo/index.js'],
-					'module/page/react-demo-dist/index.js': ['.build/module/page/react-demo/index.js'],
-					'module/page/vue-demo-dist/index.js': ['.build/module/page/vue-demo/index.js']
+					'module/page-dist/demo/index.js': ['.build/module/page/demo/index.js'],
+					'module/page-dist/demo/index-debug.js': ['.build/module/page/demo/index-debug.js'],
+					
+					'module/page-dist/react-demo/index.js': ['.build/module/page/react-demo/index.js'],
+					'module/page-dist/react-demo/index-debug.js': ['.build/module/page/react-demo/index-debug.js'],
+					
+					'module/page-dist/vue-demo/index.js': ['.build/module/page/vue-demo/index.js'],
+					'module/page-dist/vue-demo/index-debug.js': ['.build/module/page/vue-demo/index-debug.js']
 				}
 			}
 		},
@@ -128,9 +148,9 @@ module.exports = function(grunt) {
 					banner: '/*! <%= pkg.author %>  @  <%= grunt.template.today("dd-mm-yyyy") %> */\n'
 				},
 				files: {
-					'module/page/demo-dist/index.js': ['module/page/demo-dist/index.js'],
-					'module/page/react-demo-dist/index.js': ['module/page/react-demo-dist/index.js'],
-					'module/page/vue-demo-dist/index.js': ['module/page/vue-demo-dist/index.js']
+					'module/page-dist/demo/index.js': ['module/page-dist/demo/index.js'],
+					'module/page-dist/react-demo/index.js': ['module/page-dist/react-demo/index.js'],
+					'module/page-dist/vue-demo/index.js': ['module/page-dist/vue-demo/index.js']
 				}
 			}
 		},
