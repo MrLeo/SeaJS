@@ -3,7 +3,12 @@
 
 	<head>
 		<meta charset="utf-8">
+		<meta name="format-detection" content="telephone=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>vue.js Demo</title>
 		<link rel="stylesheet" type="text/css" href="../static/sass/main.scss" />
 		<style type="text/css">
@@ -15,7 +20,7 @@
 				font-family: 'Helvetica Neue', Arial, sans-serif;
 				color: #333;
 			}
-			
+
 			textarea,
 			#editor div {
 				display: inline-block;
@@ -27,7 +32,7 @@
 				box-sizing: border-box;
 				padding: 0 20px;
 			}
-			
+
 			textarea {
 				border: none;
 				border-right: 1px solid #ccc;
@@ -38,19 +43,19 @@
 				font-family: 'Monaco', courier, monospace;
 				padding: 20px;
 			}
-			
+
 			code {
 				color: #f66;
 			}
-			
+
 			.item {
 				cursor: pointer;
 			}
-			
+
 			.bold {
 				font-weight: bold;
 			}
-			
+
 			ul {
 				padding-left: 1em;
 				line-height: 1.5em;
@@ -86,8 +91,8 @@
 			</item>
 		</ul>
 
-	    <script src="../static/libs/seajs/sea.js" type="text/javascript" charset="utf-8"></script>
-	    <script src="../static/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/libs/seajs/sea.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../static/config.js" type="text/javascript" charset="utf-8"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/marked/0.3.2/marked.min.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			//自动加载对应页面的js

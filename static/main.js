@@ -22,9 +22,14 @@
  *        源码地址：https://github.com/MrLeo/SeaJS
  */
 define(function(require, exports, module) {
-	/**
-	 * ---- 全局引用 ----
-	 */
+	//  =====================
+	//  = 接口及资源路径Hosts =
+	//  =====================
+	window.path = '';
+
+	//  ===========
+	//  = 全局引用 =
+	//  ===========
 	/*require("../libs/zepto/zepto");//--全局引用zepto主文件
 	require("../libs/zepto/event");//--全局引用zepto.event主文件
 	require("../libs/zepto/ajax");//--全局引用zepto.ajax主文件
