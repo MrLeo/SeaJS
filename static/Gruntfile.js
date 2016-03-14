@@ -56,40 +56,16 @@ module.exports = function(grunt) {
 					dest: '.build/module/base'
 				}]
 			},
-			demo: {
+			controller: {
 				options: {
-					idleading: 'module/page-dist/demo/',
+					idleading: 'module/controller-dist/',
 				},
 				files: [{
 					expand: true,
 					filter: 'isFile',
-					cwd: 'module/page/demo',
+					cwd: 'module/controller',
 					src: '**/*.js',
-					dest: '.build/module/page/demo'
-				}]
-			},
-			"react-demo": {
-				options: {
-					idleading: 'module/page-dist/react-demo/',
-				},
-				files: [{
-					expand: true,
-					filter: 'isFile',
-					cwd: 'module/page/react-demo',
-					src: '**/*.js',
-					dest: '.build/module/page/react-demo'
-				}]
-			},
-			"vue-demo": {
-				options: {
-					idleading: 'module/page-dist/react-demo/',
-				},
-				files: [{
-					expand: true,
-					filter: 'isFile',
-					cwd: 'module/page/vue-demo',
-					src: '**/*.js',
-					dest: '.build/module/page/vue-demo'
+					dest: '.build/module/controller'
 				}]
 			}
 		},
@@ -114,14 +90,14 @@ module.exports = function(grunt) {
 			},
 			demo: {
 				files: {
-					'module/page-dist/demo/index.js': ['.build/module/page/demo/index.js'],
-					'module/page-dist/demo/index-debug.js': ['.build/module/page/demo/index-debug.js'],
+					'module/controller-dist/demo.js': ['.build/module/controller/demo.js'],
+					'module/controller-dist/demo-debug.js': ['.build/module/controller/demo-debug.js'],
 
-					'module/page-dist/react-demo/index.js': ['.build/module/page/react-demo/index.js'],
-					'module/page-dist/react-demo/index-debug.js': ['.build/module/page/react-demo/index-debug.js'],
+					'module/controller-dist/react-demo.js': ['.build/module/controller/react-demo.js'],
+					'module/controller-dist/react-demo-debug.js': ['.build/module/controller/react-demo-debug.js'],
 
-					'module/page-dist/vue-demo/index.js': ['.build/module/page/vue-demo/index.js'],
-					'module/page-dist/vue-demo/index-debug.js': ['.build/module/page/vue-demo/index-debug.js']
+					'module/controller-dist/vue-demo.js': ['.build/module/controller/vue-demo.js'],
+					'module/controller-dist/vue-demo-debug.js': ['.build/module/controller/vue-demo-debug.js']
 				}
 			}
 		},
@@ -149,9 +125,9 @@ module.exports = function(grunt) {
 					banner: '/*! <%= pkg.author %>  @  <%= grunt.template.today("dd-mm-yyyy") %> */\n'
 				},
 				files: {
-					'module/page-dist/demo/index.js': ['module/page-dist/demo/index.js'],
-					'module/page-dist/react-demo/index.js': ['module/page-dist/react-demo/index.js'],
-					'module/page-dist/vue-demo/index.js': ['module/page-dist/vue-demo/index.js']
+					'module/controller-dist/demo.js': ['module/controller-dist/demo.js'],
+					'module/controller-dist/react-demo.js': ['module/controller-dist/react-demo.js'],
+					'module/controller-dist/vue-demo.js': ['module/controller-dist/vue-demo.js']
 				}
 			}
 		},
