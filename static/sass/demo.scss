@@ -16,7 +16,7 @@
     }
 }
 #output{
-    width: 400px;
+    width: 80%;
     margin: 10px auto;
     font-family: "微软雅黑";    
     @include box-shadows(2px);
@@ -49,7 +49,7 @@
     text-align: center;
 }
 .map{
-    width: 100%;
+    width: 80%;
     height: 400px;
     margin: 10px auto;
     border: 1px solid #eee;
@@ -58,7 +58,7 @@
 .ko{
     @include box-shadows(2px);
     border:1px solid #eee;
-    width:600px;
+    width:80%;
     margin:{
         top:20px;
         left: auto;
