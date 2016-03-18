@@ -13,13 +13,13 @@ seajs.config({
 	base: '../static/', //--TODO：配置根路径
 	paths: { //--设置常用路径的别名
 		/* ---- 以下是和业务无关的库 ---- */
-		//'common': 'common', //--工具库
-		//'libs': 'libs', //--插件包
+		'common': '_common', //--工具库
+		'libs': 'libs', //--插件包
 	},
 	alias: { //--设置常用模块的别名
 		'base': 'module/base/base', //--base信息
-		'console': 'common/main/console', //--console.log 日志输出
-		'ajax': 'common/ajax/ajax', //--javascript ajax
+		'console': '_common/main/console', //--console.log 日志输出
+		'ajax': '_common/ajax/ajax', //--javascript ajax
 		'sweetalert': 'libs/sweetalert/dist/sweetalert.min', //--sweetalert 弹出框
 		'superslide': 'libs/super-slide/jquery.SuperSlide.2.1.1', //--superslide 选项卡、轮播
 		'lq': 'libs/lq-date/js/lq.datetimepick', //--lq-date 日历控件

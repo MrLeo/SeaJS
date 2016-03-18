@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SeaJS</name>
+	<name>MyAPP</name>
 	<comment>Create By HBuilder</comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>com.aptana.editor.php.aptanaPhpBuilder</name>
+			<name>com.pandora.projects.ui.MKeyBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
@@ -17,13 +17,12 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>com.pandora.projects.ui.MKeyNature</nature>
 		<nature>com.aptana.projects.webnature</nature>
-		<nature>com.pandora.projects.ui.wxNature</nature>
-		<nature>com.aptana.editor.php.phpNature</nature>
 	</natures>
 	<filteredResources>
 		<filter>
-			<id>1434734823150</id>
+			<id>1458282966447</id>
 			<name></name>
 			<type>10</type>
 			<matcher>
