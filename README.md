@@ -8,6 +8,8 @@
 - | -- **README.md** ：框架结构说明
 - | -- web ： 页面文件，如：index.html
 - | -- static ：静态资源文件
+	- | -- **config.js** ： `seajs的配置信息`
+	- | -- **main.js** ： `页面调用seaJS入口`
 	- | -- css ：CSS样式文件
 	- | -- sass：SCSS预编译文件
 	- | -- img ：图片文件
@@ -22,9 +24,8 @@
 		- | -- **README.md** ： React 和 jsx 的相关说明
 		- | -- **JSXTransformer.bat** ：转换jsx的CMD命令
 	- | -- libs : 插件包
-		- | -- **main.js** ： `页面调用seaJS入口,包含seajs的配置信息`
-		- | -- **lib** ： `插件包`
-		- | -- seajs ： seaJS原始插件包
+		- | -- seajs : seaJS原始插件包
+		- | -- vue : vue.js插件包
 		- | -- ...
 
 ***
@@ -37,6 +38,7 @@
 	```html
 	<!--使用seajs引入相关js文件-->
 	<script src="../static/libs/seajs/sea.js" type="text/javascript"></script>
+	<script src="../static/config.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript"> seajs.use('../static/libs/main'); </script>
 	```
 
