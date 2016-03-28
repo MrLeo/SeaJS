@@ -82,9 +82,9 @@ seajs.config({
 	 * 模块标识：
 	 * 		https://github.com/seamodule/seamodule/issues/258
 	 * 		http://segmentfault.com/a/1190000000354302
-	 * 		(1) 相对路径		："../libs",
-	 * 		(2) 顶级标识		："path/to/libs",
-	 * 		(3) 根路径		："/libs"
+	 * 		(1) 相对路径 ："../libs",
+	 * 		(2) 顶级标识 ："path/to/libs",
+	 * 		(3) 根路径 ："/libs"
 	 * 注意：paths、alias 中尽量使用【顶级标识】、【根路径】、【绝对路径】，不要使用【相对标识】，因为在不同深度的模块引用时会解析为不同的路径。
 	 */
 	base: '../static/', //--TODO：配置根路径
