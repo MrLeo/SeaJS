@@ -1,5 +1,8 @@
 # [SeaJS学习笔记](https://github.com/MrLeo/SeaJS)
 
+> [demo](http://mrleo.github.io/SeaJS/)
+
+
 > [SeaJS官方文档](http://seajs.org/docs/#docs)
 
 # `目录结构`
@@ -8,25 +11,25 @@
 - | -- **README.md** ：框架结构说明
 - | -- web ： 页面文件，如：index.html
 - | -- static ：静态资源文件
-	- | -- **config.js** ： `seajs的配置信息`
-	- | -- **main.js** ： `页面调用seaJS入口`
-	- | -- css ：CSS样式文件
-	- | -- sass：SCSS预编译文件
-	- | -- img ：图片文件
-	- | -- common ：通用工具模块
-	- | -- module ：业务相关的JS模块文件
-		- | -- **base** ：业务相关的共通JS模块文件
-		- | -- **controller** ： 与web文件夹中的页面文件同名的业务逻辑模块，如：demo/index.js
-		- | -- **model** ： 配合controller的数据处理模块
-	- | -- js ：非CMD规范的JS文件
-	- | -- react ：通过jsx生成的React组件
-	- | -- react-jsx ：React组件库
-		- | -- **README.md** ： React 和 jsx 的相关说明
-		- | -- **JSXTransformer.bat** ：转换jsx的CMD命令
-	- | -- libs : 插件包
-		- | -- seajs : seaJS原始插件包
-		- | -- vue : vue.js插件包
-		- | -- ...
+  - | -- **config.js** ： `seajs的配置信息`
+  - | -- **main.js** ： `页面调用seaJS入口`
+  - | -- css ：CSS样式文件
+  - | -- sass：SCSS预编译文件
+  - | -- img ：图片文件
+  - | -- common ：通用工具模块
+  - | -- module ：业务相关的JS模块文件
+    - | -- **base** ：业务相关的共通JS模块文件
+    - | -- **controller** ： 与web文件夹中的页面文件同名的业务逻辑模块，如：demo/index.js
+    - | -- **model** ： 配合controller的数据处理模块
+  - | -- js ：非CMD规范的JS文件
+  - | -- react ：通过jsx生成的React组件
+  - | -- react-jsx ：React组件库
+    - | -- **README.md** ： React 和 jsx 的相关说明
+    - | -- **JSXTransformer.bat** ：转换jsx的CMD命令
+  - | -- libs : 插件包
+    - | -- seajs : seaJS原始插件包
+    - | -- vue : vue.js插件包
+    - | -- ...
 
 ***
 
@@ -35,17 +38,17 @@
 1. 在**web**目录下创建HTML页面，eg.`index.html`
 2. 在HTML文件</body>前引入seajs，并指定seajs入口模块
 
-	```html
-	<!--使用seajs引入相关js文件-->
-	<script src="../static/libs/seajs/sea.js" type="text/javascript"></script>
-	<script src="../static/config.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript"> seajs.use('../static/libs/main'); </script>
-	```
+   ```html
+   <!--使用seajs引入相关js文件-->
+   <script src="../static/libs/seajs/sea.js" type="text/javascript"></script>
+   <script src="../static/config.js" type="text/javascript" charset="utf-8"></script>
+   <script type="text/javascript"> seajs.use('../static/libs/main'); </script>
+   ```
 
 3. 在**static/_module/controller**目录下创建与HTML同名的js文件，eg.`index.js`
-5. 使用`define(function(require,exports,module){ });`定义模块
-6. 使用`exports.FunctionName=function(){ };`或`module.exports={ FunctionName : function(){ } };`定义模块接口
-4. 使用`require()`引入依赖的模块，eg.`var $ = require('jquery')`引入JQuery
+4. 使用`define(function(require,exports,module){ });`定义模块
+5. 使用`exports.FunctionName=function(){ };`或`module.exports={ FunctionName : function(){ } };`定义模块接口
+6. 使用`require()`引入依赖的模块，eg.`var $ = require('jquery')`引入JQuery
 
 ***
 
