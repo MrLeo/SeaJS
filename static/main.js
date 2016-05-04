@@ -38,7 +38,7 @@ define(function(require, exports, module) {
 	require("jquery"); //--全局引用JQuery-1.8.3
 	require("react"); //--全局引用ReactJS
 	require("vue"); //--全局引用Vue.js
-	require('underscore');//--全局引用Underscore工具库
+	require('underscore'); //--全局引用Underscore工具库
 
 	/**
 	 * 获取当前页面名，不包含后缀".html"
@@ -57,7 +57,7 @@ define(function(require, exports, module) {
 	 */
 	exports.load = function() {
 		try {
-			require.async(['src_module/controller/' + getCurrentPage()], function(page) {
+			require.async(['src/view/' + getCurrentPage() + '/' + getCurrentPage()], function(page) {
 				//--异步加载多个模块，在加载完成时，执行回调
 			});
 		} catch (e) {}

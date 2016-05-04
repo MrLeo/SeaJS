@@ -1,8 +1,8 @@
 define(function(require, exports, module) {
 	var jQuery = require("jquery-2.0.3");
-	var v = require('../model/version');
-	var d = require('common/convert/date');
-	var m = require('common/map/baidu-map');
+	var v = require('../base/version');
+	var d = require('util/convert/date');
+	var m = require('util/map/baidu-map');
 	require('sweetalert');
 
 	console.log("进入:", module.id);

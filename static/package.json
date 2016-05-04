@@ -4,9 +4,9 @@
   "author": "Leo",
   "spm": {
     "alias": {
-    	"base": "module/base/base", 
-    	"console": "common/main/console", 
-    	"ajax": "common/ajax/ajax", 
+    	"base": "src/view/base/base", 
+    	"console": "src/util/main/console", 
+    	"ajax": "src/util/ajax/ajax", 
     	"sweetalert": "libs/sweetalert/dist/sweetalert.min", 
     	"superslide": "libs/super-slide/jquery.SuperSlide.2.1.1", 
     	"lq": "libs/lq-date/js/lq.datetimepick", 
