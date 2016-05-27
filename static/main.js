@@ -57,7 +57,7 @@ define(function(require, exports, module) {
 	 */
 	exports.load = function() {
 		try {
-			require.async(['src/view/' + getCurrentPage() + '/' + getCurrentPage()], function(page) {
+			require.async(['src/view/' + getCurrentPage()], function(page) {
 				//--异步加载多个模块，在加载完成时，执行回调
 			});
 		} catch (e) {}

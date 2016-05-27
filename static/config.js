@@ -17,7 +17,7 @@ seajs.config({
 		'libs': 'libs', //--插件包
 	},
 	alias: { //--设置常用模块的别名
-		'base': 'src/view/base/base', //--base信息
+		'base': 'src/base/base', //--base信息
 		'console': 'src/util/main/console', //--console.log 日志输出
 		'ajax': 'src/util/ajax/ajax', //--javascript ajax
 		'sweetalert': 'libs/sweetalert/dist/sweetalert.min', //--sweetalert 弹出框
