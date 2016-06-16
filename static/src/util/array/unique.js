@@ -84,7 +84,7 @@ define(function(require, exports, module) {
 
 		if (-1 == arr.indexOf(num = arr.shift())) newArr.push(num);
 
-		arr.length && unique(arr, newArr);
+		arr.length && unique4(arr, newArr);
 	}
 
 	module.exports = {
