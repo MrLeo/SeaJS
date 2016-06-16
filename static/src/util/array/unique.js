@@ -73,7 +73,6 @@ define(function(require, exports, module) {
 		return result;
 	}
 
-
 	/**
 	 * 此方法充分利用了递归和indexOf方法
 	 * @param {Object} arr
@@ -81,9 +80,7 @@ define(function(require, exports, module) {
 	 */
 	function unique4(arr, newArr) {
 		var num;
-
 		if (-1 == arr.indexOf(num = arr.shift())) newArr.push(num);
-
 		arr.length && unique4(arr, newArr);
 	}
 
