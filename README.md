@@ -1,9 +1,3 @@
-# [SeaJS学习笔记Demo](http://mrleo.github.io/SeaJS)
-
-## [源码地址](https://github.com/MrLeo/SeaJS/tree/gh-pages)
-
-[SeaJS官方文档](http://seajs.org/docs/#docs)
-
 
 # JSDoc
 
