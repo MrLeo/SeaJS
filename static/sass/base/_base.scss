@@ -3,6 +3,15 @@
  * Base
  *********************************************************/
 
+//清除浮动
+.clear { display:block !important; clear:both !important; float:none !important; margin:0 !important; padding:0 !important; height:0; line-height:0; font-size:0; overflow:hidden;}
+.clearfix { zoom:1; }
+.clearfix:after { content:""; display:block; clear:both; height:0; }
+.spacer{clear:both; font-size:0; height:0; line-height:0;}
+
+html, body {height:100%;margin:0;padding:0;font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;font-size:14px;}
+img,input,label,select,input{vertical-align:middle}
+img{border:0}
 
 /*
  * iOS 字体大小设置：

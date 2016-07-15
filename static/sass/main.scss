@@ -12,11 +12,13 @@
   'utils/placeholders';
 
 @import
-  'vendors/bootstrap',
-  'vendors/jquery-ui';
+  'vendors/bootstrap';
+  
+@import
+  'vendors-extensions/bootstrap';
 
 @import
-  'base/reset',
+  'base/normalize',
   'base/base',
   'base/typography';
 

@@ -27,20 +27,4 @@ ol, ul {list-style: none;}
 blockquote, q {quotes: none;}
 blockquote:before, blockquote:after,q:before, q:after {content: '';content: none;}
 table {border-collapse: collapse;border-spacing: 0;}
-/* ---- add ---- */
-//body {font-size:12px;margin:0;padding:0;font-family:Arial,"微软雅黑","microsoft yahei","MS YaHei","MS YaHei UI",verdana,sans-serif;}
-body {font-size:12px;margin:0;padding:0;font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;}
-body,html{height:100%;}
-img{border:0}
-h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
-select,input{vertical-align:middle}
-.clear { display:block !important; clear:both !important; float:none !important; margin:0 !important; padding:0 !important; height:0; line-height:0; font-size:0; overflow:hidden;}
-.clearfix { zoom:1; }
-.clearfix:after { content:""; display:block; clear:both; height:0; }
-.spacer{clear:both; font-size:0; height:0; line-height:0;}
-a{color:#333;text-decoration:none;}
-a:hover{color:#f00;}
-img,input,label{vertical-align:middle;}/*垂直居中*/
-/* ---- float ---- */
-.fl { float:left;}
-.fr { float:right;}
+
